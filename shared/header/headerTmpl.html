@@ -1,0 +1,20 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand">Sales Resource Manager</span>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse" ng-if=showMenu>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ui-sref="{{mainSref}}">Main</a></li>
+        <li><a ui-sref="{{profileSref}}">Profile</a></li>
+        <li><a href="#" logout></a></li> <!-- WHAT ??? -->
+      </ul>
+    </div
+  </div>
+</nav>

@@ -1,0 +1,30 @@
+{
+  "name": "SlRM-Front",
+  "version": "0.0.0",
+  "description": "Sales Resource Management",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "node proxy.js #http-server ./ -a localhost -p 8080 -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.2booker.ru/andres.rios/slrm-front.git"
+  },
+  "author": "Andres Rios",
+  "license": "BSD",
+  "devDependencies": {
+    "http-server": "~0.8.0"
+  },
+  "dependencies": {
+    "express": "~4.13.1",
+    "request": "~2.60.0",
+    "passwordless": "~1.1.0",
+    "emailjs": "~0.3.16",
+    "passwordless-postgrestore": "0.0.1",
+    "express-session": "~1.11.3",
+    "body-parser": "~1.13.2",
+    "multer": "~1.0.1"
+  }
+}

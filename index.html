@@ -1,0 +1,156 @@
+<html ng-app="SLRM">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jqueryui/jquery-ui.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  </head>
+
+  <body>
+
+    <header profile-sref="profile" main-sref="main"></header>
+    
+    <hr></hr><hr></hr> <!-- WHAT IS THIS!!??? -->
+
+    <div class="container-fluid" ui-view></div>
+
+
+  <script src="main.js"></script>
+
+
+  <script src="shared/messages/messagesCtrl.js"></script>
+  <script src="shared/messages/messagesDrtv.js"></script>
+
+  <script src="shared/pageError/pageErrorCtrl.js"></script>
+  <script src="shared/pageError/pageErrorDrtv.js"></script>
+  
+  <script src="shared/user/authFactory.js"></script>
+
+  <script src="shared/user/login/form/formValidatorFactory.js"></script>
+  <script src="shared/user/login/form/loginFormCtrl.js"></script>
+  <script src="shared/user/login/form/loginFormDrtv.js"></script>
+
+  <script src="shared/user/login/loginCtrl.js"></script>
+  <script src="shared/user/login/loginDrtv.js"></script>
+
+  <script src="shared/user/logout/logoutCtrl.js"></script>
+  <script src="shared/user/logout/logoutDrtv.js"></script>
+  
+  <script src="shared/user/profile/profileCtrl.js"></script>
+  <script src="shared/user/profile/profileDrtv.js"></script>
+  
+  <script src="shared/user/restore/restoreCtrl.js"></script>
+  <script src="shared/user/restore/restoreDrtv.js"></script>
+
+  <script src="shared/header/headerCtrl.js"></script>
+  <script src="shared/header/headerDrtv.js"></script>
+  
+  <script src="shared/entity/entityService.js"></script>
+
+  <script src="shared/entity/detail/entityDetailCtrl.js"></script>
+  <script src="shared/entity/detail/entityDetailDrtv.js"></script>
+
+  <script src="shared/entity/modal/entityModalCtrl.js"></script>
+  <script src="shared/entity/modal/entityModalDrtv.js"></script>
+
+  <script src="shared/entity/form/entityFormCtrl.js"></script>
+  <script src="shared/entity/form/entityFormDrtv.js"></script>
+
+  <script src="shared/entity/table/entityTableCtrl.js"></script>
+  <script src="shared/entity/table/entityTableDrtv.js"></script>
+
+  <script src="shared/entity/entityCtrl.js"></script>
+  <script src="shared/entity/entityDrtv.js"></script>
+
+  <!-- CLIENTS -->
+  <script src="components/clients/form/clientsFormValidation.js"></script>
+  <script src="components/clients/form/clientsFormDrtv.js"></script>
+  <script src="components/clients/form/clientsFormCfg.js"></script>
+
+  <script src="components/clients/show/clientsShowDrtv.js"></script>
+  <script src="components/clients/show/clientsShowCfg.js"></script>
+
+  <script src="components/clients/table/row/clientsTableRowDrtv.js"></script>
+  <script src="components/clients/table/header/clientsTableHeaderDrtv.js"></script>
+  <script src="components/clients/table/clientsTableCfg.js"></script>
+
+  <script src="components/clients/clientsCtrl.js"></script>
+  <script src="components/clients/clientsCfg.js"></script>
+  <!-- CLIENTS -->
+
+  <!-- BROKERS -->
+  <script src="components/brokers/form/brokersFormValidation.js"></script>
+  <script src="components/brokers/form/brokersFormDrtv.js"></script>
+  <script src="components/brokers/form/brokersFormCfg.js"></script>
+
+  <script src="components/brokers/show/brokersShowDrtv.js"></script>
+  <script src="components/brokers/show/brokersShowCfg.js"></script>
+
+  <script src="components/brokers/table/row/brokersTableRowDrtv.js"></script>
+  <script src="components/brokers/table/header/brokersTableHeaderDrtv.js"></script>
+  <script src="components/brokers/table/brokersTableCfg.js"></script>
+
+  <script src="components/brokers/brokersCtrl.js"></script>
+  <script src="components/brokers/brokersCfg.js"></script>
+  <!-- BROKERS -->
+
+  <!-- GOODS -->
+  <script src="components/goods/form/goodsFormValidation.js"></script>
+  <script src="components/goods/form/goodsFormDrtv.js"></script>
+  <script src="components/goods/form/goodsFormCfg.js"></script>
+
+  <script src="components/goods/show/goodsShowDrtv.js"></script>
+  <script src="components/goods/show/goodsShowCfg.js"></script>
+
+  <script src="components/goods/table/row/goodsTableRowDrtv.js"></script>
+  <script src="components/goods/table/header/goodsTableHeaderDrtv.js"></script>
+  <script src="components/goods/table/goodsTableCfg.js"></script>
+
+  <script src="components/goods/goodsCtrl.js"></script>
+  <script src="components/goods/goodsCfg.js"></script>
+  <!-- GOODS -->
+
+  <!-- PRODUCERS -->
+  <script src="components/producers/form/producersFormValidation.js"></script>
+  <script src="components/producers/form/producersFormDrtv.js"></script>
+  <script src="components/producers/form/producersFormCfg.js"></script>
+
+  <script src="components/producers/show/producersShowDrtv.js"></script>
+  <script src="components/producers/show/producersShowCfg.js"></script>
+
+  <script src="components/producers/table/row/producersTableRowDrtv.js"></script>
+  <script src="components/producers/table/header/producersTableHeaderDrtv.js"></script>
+  <script src="components/producers/table/producersTableCfg.js"></script>
+
+  <script src="components/producers/producersCtrl.js"></script>
+  <script src="components/producers/producersCfg.js"></script>
+  <!-- PRODUCERS -->
+
+  <!-- PROVIDERS -->
+  <script src="components/providers/form/providersFormValidation.js"></script>
+  <script src="components/providers/form/providersFormDrtv.js"></script>
+  <script src="components/providers/form/providersFormCfg.js"></script>
+
+  <script src="components/providers/show/providersShowDrtv.js"></script>
+  <script src="components/providers/show/providersShowCfg.js"></script>
+
+  <script src="components/providers/table/row/providersTableRowDrtv.js"></script>
+  <script src="components/providers/table/header/providersTableHeaderDrtv.js"></script>
+  <script src="components/providers/table/providersTableCfg.js"></script>
+
+  <script src="components/providers/providersCtrl.js"></script>
+  <script src="components/providers/providersCfg.js"></script>
+  <!-- PROVIDERS -->
+
+
+  <script src="components/mainCtrl.js"></script>
+  <script src="states.js"></script>
+
+
+  </body>
+  
+</html>
