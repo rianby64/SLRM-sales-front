@@ -13,7 +13,7 @@
         controller: 'entityTableController',
         template: function(elem, attrs) {
           return '\
-<table class="table" id="entity-table"> \
+<table class="table table-striped" id="entity-table"> \
   <thead> \
     <tr ' + attrs.templateTableHeader + '></tr>\
   </thead> \
