@@ -31,6 +31,10 @@
             $scope
             .read(criteria)
             .success(function(response) {
+              if (response.birth_date) {
+                var birth_date = new Date(response.birth_date);
+                response.birth_date = new Date(birth_date.toLocaleDateString());
+              }
               $scope.entity = response;
             })
             .error(function(reason) {

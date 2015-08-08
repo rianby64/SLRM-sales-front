@@ -65,8 +65,7 @@
       return manager
       .read(criteria)
       .success(function(response) {
-        if (criteria) { manager.notifyReadOne(); }
-        else { manager.notifyRead(response); }
+        manager.notifyRead(response);
       })
       .error(manager.notifyError);
     };

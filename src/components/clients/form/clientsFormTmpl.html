@@ -11,27 +11,18 @@
   <input type="text" class="form-control" id="entityForm.last_name" placeholder="last_name" ng-model="entity.last_name">
 </div>
 <div class="form-group">
-  <label for="entityForm.birth_date">birth_date</label>
-  <input type="text" class="form-control" id="entityForm.birth_date" placeholder="birth_date" ng-model="entity.birth_date">
-</div>
-
-<div class="form-group">
-  <div class='input-group date' id='datetimepicker1'>
-    <input type='text' class="form-control" />
-    <span class="input-group-addon">
-      <span class="glyphicon glyphicon-calendar"></span>
-    </span>
-  </div>
-</div>
-<script type="text/javascript">
-  $(function () {
-    $('#datetimepicker1').datetimepicker();
-  });
-</script>
-
-<div class="form-group">
   <label for="entityForm.passport">passport</label>
   <input type="text" class="form-control" id="entityForm.passport" placeholder="passport" ng-model="entity.passport">
+</div>
+<div class="form-group">
+    <label for="entityForm.birth_date">birth_date</label>
+    <div class='input-group date'>
+        <input type='text' class="form-control" datetimepicker ng-model="entity.birth_date" />
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar">
+            </span>
+        </span>
+    </div>
 </div>
 <div class="form-group">
   <label for="entityForm.telephone">telephone</label>

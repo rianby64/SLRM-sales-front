@@ -9,7 +9,7 @@
         scope: { 
           entity: '='
         },
-        templateUrl: 'components/clients/form/clientsFormTmpl.html'        
+        templateUrl: 'components/clients/form/clientsFormTmpl.html'
       };
     });
   

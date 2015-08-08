@@ -50,7 +50,6 @@
           }
         }
         $scope.back();
-        console.log(entity);
         scrollAndHighligh(entity);
       }
       
