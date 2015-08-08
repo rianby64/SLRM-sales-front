@@ -17,7 +17,8 @@
             add=add \
             remove=remove \
             update=update \
-            base="main.client"> \
+            base="main.client" \
+            title="Клиенты"> \
           </entity>'
         });
       

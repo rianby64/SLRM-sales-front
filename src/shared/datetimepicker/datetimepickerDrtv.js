@@ -8,7 +8,8 @@
         require: '?ngModel',
         restrict: 'A',
         scope: {
-          ngModel: '='
+          ngModel: '=',
+          format: '@'
         },
         controller: ['$scope', function($scope) {
           $scope.elem = {};
@@ -30,7 +31,7 @@
         }],
         link: function(scope, elem, attrs) {
           elem.datetimepicker({
-            format: 'MMMM DD, YYYY'
+            format: scope.format
           });
           scope.setElement(elem);
           elem.on('blur', function (event) {

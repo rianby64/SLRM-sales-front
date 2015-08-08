@@ -17,7 +17,8 @@
             add=add \
             remove=remove \
             update=update \
-            base="main.brokers"> \
+            base="main.brokers" \
+            title="Брокеры"> \
           </entity>'
         });
       

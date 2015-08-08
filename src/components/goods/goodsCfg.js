@@ -17,7 +17,8 @@
             add=add \
             remove=remove \
             update=update \
-            base="main.goods"> \
+            base="main.goods" \
+            title="Товары"> \
           </entity>'
         });
       

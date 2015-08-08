@@ -17,7 +17,8 @@
             add=add \
             remove=remove \
             update=update \
-            base="main.providers"> \
+            base="main.providers" \
+            title="Поставщики"> \
           </entity>'
         });
       

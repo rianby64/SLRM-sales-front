@@ -5,6 +5,7 @@
     .controller('entityController', ['$scope', '$state', 'entityManager', function($scope, $state, entityManager) {
       
       $scope.entities = $scope.entities || entityManager.entities;
+      $scope.title = $scope.title || '';
       
       $scope.add = $scope.add || function() { console.error('entityController>>add empty'); };
       $scope.read = $scope.read || function() { console.error('entityController>>read empty'); };
