@@ -2,46 +2,10 @@
   "use strict";
   angular
     .module('RDash')
-    .controller('providersController', ['$scope', '$http', 'authService', function($scope, $http, authService) {
-      $scope.add = function add(client) {
-        return $http.post("/api/providers", client, {
-          headers: {
-            'AUTHORIZATION': 'xToken ' + authService.getToken()
-          }
-        });
-      };
-
-      $scope.read = function read(criteria) {
-        if (!criteria) {
-          return $http.get("/api/providers", {
-            headers: {
-              'AUTHORIZATION': 'xToken ' + authService.getToken()
-            }
-          });
-        }
-        if (criteria.id) {
-          return $http.get("/api/providers/" + criteria.id, {
-            headers: {
-              'AUTHORIZATION': 'xToken ' + authService.getToken()
-            }
-          }); 
-        }
-      };
-
-      $scope.remove = function remove(client) {
-        return $http.delete("/api/providers/" + client.id, {
-          headers: {
-            'AUTHORIZATION': 'xToken ' + authService.getToken()
-          }
-        });
-      };
-
-      $scope.update = function update(client) {
-        return $http.put("/api/providers/" + client.id, client, {
-          headers: {
-            'AUTHORIZATION': 'xToken ' + authService.getToken()
-          }
-        });
-      };
+    .controller('providersController', ['$scope', 'providersHTTP', function($scope, providersHTTP) {
+      $scope.add = providersHTTP.add;
+      $scope.read = providersHTTP.read;
+      $scope.remove = providersHTTP.remove;
+      $scope.update = providersHTTP.update;
     }]);
 })();

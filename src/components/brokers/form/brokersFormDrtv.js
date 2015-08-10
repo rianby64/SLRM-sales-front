@@ -9,6 +9,7 @@
         scope: { 
           entity: '='
         },
+        controller: 'brokersFromController',
         templateUrl: 'components/brokers/form/brokersFormTmpl.html'        
       };
     });

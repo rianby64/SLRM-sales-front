@@ -28,7 +28,9 @@
     "bootstrap": "latest",
     "font-awesome": "latest",
     "jquery-ui": "latest",
-    "eonasdan-bootstrap-datetimepicker": "~4.15.35"
+    "eonasdan-bootstrap-datetimepicker": "~4.15.35",
+    "angular-ui-select": "~0.12.1",
+    "angular-sanitize": "~1.4.3"
   },
   "repository": {
     "type": "git",

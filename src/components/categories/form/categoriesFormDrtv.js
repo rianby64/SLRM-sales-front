@@ -3,14 +3,13 @@
   
   angular
     .module('RDash')
-    .directive('goodsForm', function() {
+    .directive('categoriesForm', function() {
       return {
         restrict: 'E',
         scope: { 
           entity: '='
         },
-        controller: 'goodsFormController',
-        templateUrl: 'components/goods/form/goodsFormTmpl.html'        
+        templateUrl: 'components/categories/form/categoriesFormTmpl.html'
       };
     });
   
