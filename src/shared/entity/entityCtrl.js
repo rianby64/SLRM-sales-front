@@ -4,10 +4,6 @@
     .module('RDash')
     .controller('entityController', ['$scope', '$state', 'entityManager', function($scope, $state, entityManager) {
       
-      $scope.normalTheme = true;
-      if ($scope.theme === "light") {
-        $scope.normalTheme = false;
-      }
       $scope.entities = $scope.entities || entityManager.entities;
       $scope.title = $scope.title || '';
       

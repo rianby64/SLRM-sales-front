@@ -1,0 +1,10 @@
+<tr>
+  <td>{{ entity.createdAt }} {{ entity.comments }}</td>
+  <!-- <standar behavior -->
+  <td>
+    <a ui-sref="{{base}}.detail({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-info-sign"></a>
+    <a ui-sref="{{base}}.edit({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-pencil"></a>
+    <entity-modal entity=entity submit=onRemove template-detail="commprop-show"></entity-modal>
+  </td>
+  <!-- standar behavior> -->
+</tr>

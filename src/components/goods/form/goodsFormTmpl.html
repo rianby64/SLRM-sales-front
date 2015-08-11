@@ -1,24 +1,22 @@
 <div class="form-group">
   <label for="entityForm.article">Артикул</label>
-  <input type="text" class="form-control" id="entityForm.article" placeholder="article" ng-model="entity.article" required>
+  <input type="text" class="form-control" id="entityForm.article" placeholder="Артикул" ng-model="entity.article" required>
 </div>
 <div class="form-group">
   <label for="entityForm.name">Название</label>
-  <input type="text" class="form-control" id="entityForm.name" placeholder="name" ng-model="entity.name" required>
+  <input type="text" class="form-control" id="entityForm.name" placeholder="Название" ng-model="entity.name" required>
 </div>
 <div class="form-group">
   <label for="entityForm.price">Цена</label>
-  <input type="number" class="form-control" id="entityForm.price" placeholder="price" ng-model="entity.price">
+  <input type="number" class="form-control" id="entityForm.price" placeholder="Цена" ng-model="entity.price">
 </div>
-<!--
 <div class="form-group">
-  <label for="entityForm.currency">currency</label>
-  <input type="text" class="form-control" id="entityForm.currency" placeholder="currency" ng-model="entity.currency">
+  <label for="entityForm.manufacturer">Производитель</label>
+  <input type="text" class="form-control" id="entityForm.manufacturer" placeholder="Производитель" ng-model="entity.manufacturer">
 </div>
--->
 <div class="form-group">
   <label for="entityForm.description">Описание</label>
-  <input type="text" class="form-control" id="entityForm.description" placeholder="description" ng-model="entity.description">
+  <input type="text" class="form-control" id="entityForm.description" placeholder="Описание" ng-model="entity.description">
 </div>
 
 <div class="form-group">
@@ -27,7 +25,7 @@
              theme="bootstrap"
              ng-disabled="disabled"
              reset-search-input="false">
-    <ui-select-match placeholder="Enter an category...">{{$select.selected.name}}</ui-select-match>
+    <ui-select-match placeholder="Категория...">{{$select.selected.name}}</ui-select-match>
     <ui-select-choices repeat="category in categories track by $index"
              refresh="refreshCategories($select.search)"
              refresh-delay="0">
@@ -37,6 +35,6 @@
 </div>
 
 <div class="form-group">
-  <label for="entityForm.comments">Комментарий</label>
-  <input type="text" class="form-control" id="entityForm.comments" placeholder="comments" ng-model="entity.comments">
+  <label for="entityForm.comments">Коментарии</label>
+  <input type="text" class="form-control" id="entityForm.comments" placeholder="Коментарии" ng-model="entity.comments">
 </div>
