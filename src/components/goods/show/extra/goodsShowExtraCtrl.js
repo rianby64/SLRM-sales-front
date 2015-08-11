@@ -16,13 +16,13 @@
       $scope.goodId = parseInt($stateParams.id, 10);
       goodsProvidersHTTP.setGoodId($scope.goodId);
       
-      $scope.entries = [];
+      $scope.entriesGoodsProviders = [];
       
       goodsProvidersHTTP.read().success(function(response) {
-        $scope.entries = response;
+        $scope.entriesGoodsProviders = response;
       });
       
-      $scope.onAdd = function() {
+      $scope.onAddGoodsProviders = function() {
         var entry = {
           price: $scope.price,
           providerId: $scope.entry.provider.id,
@@ -33,24 +33,25 @@
           response.provider = {
             legal_name: $scope.entry.provider.legal_name
           };
-          $scope.entries.push(response);
+          $scope.entriesGoodsProviders.push(response);
           $scope.entry = {};
           $scope.price = 0;
+          $scope.providerId = 0;
         });
         
       };
       
-      $scope.onRemove = function(entry) {
+      $scope.onRemoveGoodsProviders = function(entry) {
         goodsProvidersHTTP.remove(entry).success(function(response) {
-          var l = $scope.entries.length, i, found = false;
+          var l = $scope.entriesGoodsProviders.length, i, found = false;
           for (i = 0; i < l; i++) {
-            if ($scope.entries[i].id === entry.id) {
+            if ($scope.entriesGoodsProviders[i].id === entry.id) {
               found = true;
               break;
             }
           };
           if (found)
-            $scope.entries.splice(i, 1);
+            $scope.entriesGoodsProviders.splice(i, 1);
         });
       };
       
