@@ -37,21 +37,6 @@
 </div>
 
 <div class="form-group">
-  <label for="entityForm.providerId">Поставщик</label>
-  <ui-select ng-model="entity.provider"
-             theme="bootstrap"
-             ng-disabled="disabled"
-             reset-search-input="false">
-    <ui-select-match placeholder="Enter an provider...">{{$select.selected.legal_name}}</ui-select-match>
-    <ui-select-choices repeat="provider in providers track by $index"
-             refresh="refreshProviders($select.search)"
-             refresh-delay="0">
-      <div ng-bind-html="provider.legal_name | highlight: $select.search"></div>
-    </ui-select-choices>
-  </ui-select>
-</div>
-
-<div class="form-group">
   <label for="entityForm.comments">Комментарий</label>
   <input type="text" class="form-control" id="entityForm.comments" placeholder="comments" ng-model="entity.comments">
 </div>

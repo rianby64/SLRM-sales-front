@@ -7,7 +7,7 @@
       return {
         restrict: 'E',
         scope: {
-          add: '=', read: '=', remove: '=', update: '=', base: '@', title: '@'
+          add: '=', read: '=', remove: '=', update: '=', base: '@', title: '@', theme: '@'
         },
         controller: 'entityController',
         templateUrl: 'shared/entity/entityTmpl.html'        

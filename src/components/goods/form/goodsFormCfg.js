@@ -31,16 +31,6 @@
             .read(criteria)
             .success(function(response) {
               $scope.entity = response;
-//              if (response.categoryId) {
-//                categoriesHTTP.read({ id: response.categoryId }).success(function(category) {
-//                  $scope.entity.category = category;
-//                });
-//              }
-//              if (response.providerId) {
-//                providersHTTP.read({ id: response.providerId }).success(function(provider) {
-//                  $scope.entity.provider = provider;
-//                });
-//              }
             })
             .error(function(reason) {
               $scope.error(reason);

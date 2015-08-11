@@ -8,6 +8,7 @@
       // Now set up the states
       $stateProvider
         .state('main.goods.detail', {
+          abstract: true,
           url: "/detail/:id",
           controller: ['$scope', '$stateParams', function($scope, $stateParams) {
             var criteria = {

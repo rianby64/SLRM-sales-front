@@ -15,14 +15,17 @@
             valid: true
           };
           
+          if (client.price < 0) {
+            reason.valid = false;
+            reason.price = ['price is negative'];
+          }
+          
           if (reason.valid) {
             var form = angular.copy(client);
             
             delete form.category;
-            delete form.provider;
             
             form.categoryId = client.category.id;
-            form.providerId = client.provider.id;
             resolve(form);
           }
           reject(reason);

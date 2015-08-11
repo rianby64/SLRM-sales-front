@@ -1,0 +1,35 @@
+<hr>
+<table class="table">
+  <caption>Поставщики товара</caption>
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th>Цена</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ui-select ng-model="entry.provider"
+             theme="bootstrap"
+             ng-disabled="disabled"
+             reset-search-input="false">
+          <ui-select-match placeholder="Enter an provider...">{{$select.selected.legal_name}}</ui-select-match>
+          <ui-select-choices repeat="provider in providers track by $index"
+                   refresh="refreshProviders($select.search)"
+                   refresh-delay="0">
+            <div ng-bind-html="provider.legal_name | highlight: $select.search"></div>
+          </ui-select-choices>
+        </ui-select>
+      </td>
+      <td><input ng-model="price" type="number" class="form-control" /></td>
+      <td><button ng-click="onAdd()" class="btn btn-default glyphicon glyphicon-plus"></button></td>
+    </tr>
+    <tr ng-repeat="entry in entries">
+      <td>{{entry.provider.legal_name}}</td>
+      <td>{{entry.price}}</td>
+      <td><button ng-click="onRemove(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
+    </tr>
+  </tbody>
+</table>

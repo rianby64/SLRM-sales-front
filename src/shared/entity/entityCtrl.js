@@ -4,8 +4,15 @@
     .module('RDash')
     .controller('entityController', ['$scope', '$state', 'entityManager', function($scope, $state, entityManager) {
       
+      $scope.normalTheme = true;
+      if ($scope.theme === "light") {
+        $scope.normalTheme = false;
+      }
       $scope.entities = $scope.entities || entityManager.entities;
       $scope.title = $scope.title || '';
+      
+      $scope.message = $scope.message || function() { console.error('entityController>>message empty'); };
+      $scope.error = $scope.error || function() { console.error('entityController>>error empty'); };
       
       $scope.add = $scope.add || function() { console.error('entityController>>add empty'); };
       $scope.read = $scope.read || function() { console.error('entityController>>read empty'); };

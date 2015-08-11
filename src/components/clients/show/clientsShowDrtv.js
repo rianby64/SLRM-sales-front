@@ -7,7 +7,8 @@
       return {
         restrict: 'A',
         scope: { 
-          entity: '='
+          entity: '=',
+          onCancel: '='
         },
         templateUrl: 'components/clients/show/clientsShowTmpl.html'        
       };
