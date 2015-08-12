@@ -1,0 +1,36 @@
+<hr>
+<table class="table">
+  <caption>Список товаров</caption>
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th>Цена<br>Количество</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ui-select ng-model="entry.good"
+             theme="bootstrap"
+             ng-disabled="disabled"
+             reset-search-input="false"
+             on-select="onSelectGood($item, $model)">
+          <ui-select-match placeholder="Товар...">{{$select.selected.name}}</ui-select-match>
+          <ui-select-choices repeat="good in goods track by $index"
+                   refresh="refreshGoods($select.search)"
+                   refresh-delay="0">
+            <div ng-bind-html="good.name | highlight: $select.search"></div>
+          </ui-select-choices>
+        </ui-select>
+      </td>
+      <td><input ng-model="price" type="number" class="form-control" /><br><input ng-model="quantity" type="number" class="form-control" /></td>
+      <td><button ng-click="onAddCommpropGoods()" class="btn btn-default glyphicon glyphicon-plus"></button></td>
+    </tr>
+    <tr ng-repeat="entry in entriesCommpropGoods">
+      <td>{{entry.good.name}}</td>
+      <td>{{entry.quantity}} шт, ${{entry.price}}<br>${{entry.price*entry.quantity}}</td>
+      <td><button ng-click="onRemoveCommpropGoods(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
+    </tr>
+  </tbody>
+</table>

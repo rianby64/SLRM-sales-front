@@ -1,8 +1,8 @@
 <tr>
-  <td>{{ entity.createdAt }} {{ entity.comments }}</td>
+  <td>{{ entity.createdAt | date:'dd MMM yyyy h:mm' }}, {{ entity.client.first_name }} {{ entity.client.last_name }}</td>
   <!-- <standar behavior -->
   <td>
-    <a ui-sref="{{base}}.detail({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-info-sign"></a>
+    <a ui-sref="{{base}}.detail.extra({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-info-sign"></a>
     <a ui-sref="{{base}}.edit({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-pencil"></a>
     <entity-modal entity=entity submit=onRemove template-detail="commprop-show"></entity-modal>
   </td>

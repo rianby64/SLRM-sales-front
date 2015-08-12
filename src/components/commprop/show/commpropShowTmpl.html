@@ -1,2 +1,5 @@
-{{ entity.createdAt }}<br>
+КП от {{ entity.createdAt | date:'dd MMM yyyy h:mm' }}<br>
+Для {{ entity.client.first_name }} {{ entity.client.last_name }}<br>
 {{ entity.comments }}
+
+<div ui-view></div>
