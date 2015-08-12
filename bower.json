@@ -30,7 +30,8 @@
     "jquery-ui": "latest",
     "eonasdan-bootstrap-datetimepicker": "~4.15.35",
     "angular-ui-select": "~0.12.1",
-    "angular-sanitize": "~1.4.3"
+    "angular-sanitize": "~1.4.3",
+    "ng-file-upload": "~6.0.4"
   },
   "repository": {
     "type": "git",

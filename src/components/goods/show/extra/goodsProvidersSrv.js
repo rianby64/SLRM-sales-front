@@ -7,24 +7,24 @@
         goodId = id;
       };
       this.add = function add(goodprovider) {
-        return $http.post("/api/goods/" + goodId + "/goodsproviders", goodprovider);
+        return $http.post("/api/goods/" + goodId + "/providers", goodprovider);
       };
 
       this.read = function read(criteria) {
         if (!criteria) {
-          return $http.get("/api/goods/" + goodId + "/goodsproviders");
+          return $http.get("/api/goods/" + goodId + "/providers");
         }
         if (criteria.id) {
-          return $http.get("/api/goods/" + goodId + "/goodsproviders/" + criteria.id); 
+          return $http.get("/api/goods/" + goodId + "/providers/" + criteria.id); 
         }
       };
 
       this.remove = function remove(goodprovider) {
-        return $http.delete("/api/goods/" + goodId + "/goodsproviders/" + goodprovider.id);
+        return $http.delete("/api/goods/" + goodId + "/providers/" + goodprovider.id);
       };
 
       this.update = function update(goodprovider) {
-        return $http.put("/api/goods/" + goodId + "/goodsproviders/" + goodprovider.id, goodprovider);
+        return $http.put("/api/goods/" + goodId + "/providers/" + goodprovider.id, goodprovider);
       };
     
   }]);
