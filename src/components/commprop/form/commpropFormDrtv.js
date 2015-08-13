@@ -10,7 +10,7 @@
           entity: '='
         },
         controller: 'commpropFormController',
-        templateUrl: 'components/commprop/PDF/commpropFormTmpl.html'
+        templateUrl: 'components/commprop/form/commpropFormTmpl.html'
       };
     });
   
