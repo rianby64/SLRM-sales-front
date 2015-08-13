@@ -5,7 +5,7 @@
     .module('RDash')
     .factory('authService', ['$state', '$stateParams', '$q', '$http', function($state, $stateParams, $q, $http) {
     var authService = {},
-        token = false,
+        token = true,
         LOGIN_UI_REF = 'login',
         MAIN_UI_REF = 'main',
         notifyLogin = function() { console.error('define a notify login'); },
@@ -13,7 +13,7 @@
     
     function check(next) {
       return $q(function(resolve, reject) {
-        var next_ = next || MAIN_UI_REF;
+        var next_ = next || MAIN_UI_REF; resolve();
         if (!authService.hasToken()) {
           $state.go(LOGIN_UI_REF, { next: next_ });
           reject();

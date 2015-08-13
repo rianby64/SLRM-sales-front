@@ -1,7 +1,7 @@
 <tr>
   <td>{{ entity.name }}</td>
   <!-- <standar behavior -->
-  <td>
+   <td style="text-align: right; min-width: 150px;">
     <a ui-sref="{{base}}.detail({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-info-sign"></a>
     <a ui-sref="{{base}}.edit({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-pencil"></a>
     <entity-modal entity=entity submit=onRemove template-detail="categories-show"></entity-modal>
