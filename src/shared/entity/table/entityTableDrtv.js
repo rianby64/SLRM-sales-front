@@ -1,4 +1,4 @@
-﻿;(function() {
+;(function() {
   "use strict";
   
   angular
@@ -15,7 +15,7 @@
         controller: 'entityTableController',
         template: function(elem, attrs) {
           return '<div ng-if="title"><hr>{{title}}</div> \
-<div class="row" ng-if="normalTheme"><div class="container-fluid" style="margin-top:10px;margin-bottom:10px;"><div class="row text-right"><a ui-sref="{{base}}.create" class="btn btn-primary">Добавить</a></div></div></div> \
+<div class="row text-right"><a ui-sref="{{base}}.create" class="btn btn-primary">Добавить</a></div> \
 <table class="table table-striped" id="entity-table"> \
   <thead> \
     <tr ' + attrs.templateTableHeader + '></tr>\
