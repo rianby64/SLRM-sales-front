@@ -8,6 +8,11 @@
   },
   "author": "Andres Rios",
   "license": "BSD",
+  "scripts": {
+    "prestart": "npm install",
+    "postinstall": "bower install",
+    "start": "gulp default"
+  },
   "devDependencies": {
       "bower": "^1.3.9",
       "gulp": "~3.8.0",
