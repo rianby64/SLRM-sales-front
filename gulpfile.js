@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     watch = require('gulp-watch'),
     minifyCss = require('gulp-minify-css'),
+    minifyJs = require('gulp-uglify'),
     concat = require('gulp-concat'),
     less = require('gulp-less'),
     rename = require('gulp-rename'),
@@ -28,7 +29,7 @@ var paths = {
 gulp.task('usemin', function() {
     return gulp.src(paths.index)
         .pipe(usemin({
-            js: ['concat'],
+            js: [minifyJs(), 'concat'],
             css: [minifyCss({keepSpecialComments: 0}), 'concat'],
         }))
         .pipe(gulp.dest('dist/'));
@@ -59,6 +60,7 @@ gulp.task('custom-images', function() {
 
 gulp.task('custom-js', function() {
     return gulp.src([paths.scripts, paths.scriptsComponents, paths.scriptsShared])
+        .pipe(minifyJs())
         .pipe(concat('dashboard.min.js'))
         .pipe(gulp.dest('dist/js'));
 });
@@ -103,24 +105,7 @@ gulp.task('watch', function() {
 });
 
 /**
- * Live reload server
- */
-gulp.task('webserver', function() {
-    connect.server({
-        root: 'dist',
-        livereload: true,
-        port: 8888
-    });
-});
-
-gulp.task('livereload', function() {
-    gulp.src(['dist/**/*.*'])
-        .pipe(watch())
-        .pipe(connect.reload());
-});
-
-/**
  * Gulp tasks
  */
 gulp.task('build', ['usemin', 'build-assets', 'build-custom']);
-gulp.task('default', ['build', 'webserver', 'livereload', 'watch']);
+gulp.task('default', ['build', 'watch']);
