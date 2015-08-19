@@ -16,6 +16,16 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             url: "/login/next::next",
             template: "<login restore-sref='restore'></login>"
           })
+          .state('authenticate', {
+            url: "/authenticate/:token/:uid",
+            template: 'authenticating... soon you will be redirected',
+            controller: ['$scope', '$state', '$stateParams', '$http', function($scope, $state, $stateParams, $http) {
+              console.log($stateParams);
+              $http.post('/login', $stateParams).then(function (response) {
+                $state.go('main');
+              });
+            }]
+          })
           .state('restore', {
             url: "/restore",
             template: "<restore></restore>"
@@ -28,10 +38,6 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             url: "/main",
             templateUrl: 'templates/main.html',
             controller: "mainCtrl"
-          })
-          .state('main.test', {
-            url: "/test",
-            templateUrl: 'templates/tables.html'
           });
 
         $urlRouterProvider.otherwise(function($injector, $location){

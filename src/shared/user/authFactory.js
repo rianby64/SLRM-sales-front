@@ -22,6 +22,37 @@
       });
     }
     
+    function requestToken(credentials) {
+      console.log('requesting', credentials);
+      return $q(function(resolve, reject) {
+        var next = $stateParams.next,
+            reason = {
+              valid: false,
+              email: ['cannot authorizate']
+            };
+        
+        $http
+          .post("/passwordless", credentials)
+          .success(function(response) {
+            
+              console.log(response);
+//            // < BE CAREFUL! HERE WE EXTRACT THE TOKEN'S VALUE>
+//            authService.setToken(response.success);
+//            // <BE CAREFUL! HERE WE EXTRACT THE TOKEN'S VALUE />
+//            
+//            $state.go(next);
+//            resolve(credentials);
+//            notifyLogin();
+          
+          }).error(function(response) {
+            reject(response);
+          });
+        
+        
+      });
+    }
+      
+    
     function login(credentials) {
       return $q(function(resolve, reject) {
         var next = $stateParams.next,
@@ -91,6 +122,8 @@
     authService.onLogin = onLogin;
     authService.logout = logout;
     authService.onLogout = onLogout;
+      
+    authService.requestToken = requestToken;
       
     authService.check = check;
     authService.hasToken = hasToken;
