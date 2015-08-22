@@ -8,7 +8,8 @@
         restrict: 'E',
         scope: {
           error: '=',
-          submit: '='
+          submit: '=',
+          submitted: '='
         },
         controller: 'loginFormController',
         templateUrl: 'shared/user/login/form/loginFormTmpl.html'        

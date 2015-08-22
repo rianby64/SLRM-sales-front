@@ -6,20 +6,26 @@
     .controller('loginController', [
       '$scope',
       'authService',
-    function ($scope, authService) {
-      $scope.validForm = function validForm(credentials) {
-        var text = "submitting";
-        $scope.message(text); // show that we're submitting
-        
-        authService
-          .login(credentials)
-          .then(loginSuccess, $scope.error);
-      }
+      loginController
+    ]);
+  
+  function loginController($scope, authService) {
+    $scope.submitted = false;
+    
+    $scope.validForm = function validForm(credentials) {
+      var text = "submitting";
+      $scope.message(text); // show that we're submitting
 
-      function loginSuccess(credentials) {
-        $scope.message(); // clear submitting message
-      }
-      
-    }]);
+      authService
+        .requestToken(credentials)
+        .then(loginSuccess, $scope.error);
+    }
+
+    function loginSuccess(credentials) {
+      $scope.submitted = true;
+      $scope.message("success"); // clear submitting message
+    }
+
+  }
   
 })();

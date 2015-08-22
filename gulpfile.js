@@ -1,7 +1,5 @@
 var gulp = require('gulp'),
     usemin = require('gulp-usemin'),
-    wrap = require('gulp-wrap'),
-    connect = require('gulp-connect'),
     watch = require('gulp-watch'),
     minifyCss = require('gulp-minify-css'),
     minifyJs = require('gulp-uglify'),
@@ -29,7 +27,10 @@ var paths = {
 gulp.task('usemin', function() {
     return gulp.src(paths.index)
         .pipe(usemin({
-            js: [minifyJs(), 'concat'],
+            js: [
+              minifyJs(),
+              'concat'
+            ],
             css: [minifyCss({keepSpecialComments: 0}), 'concat'],
         }))
         .pipe(gulp.dest('dist/'));

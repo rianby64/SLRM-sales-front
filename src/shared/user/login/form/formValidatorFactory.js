@@ -9,11 +9,7 @@
       var formValidator = {};
       
       function isValidEmail(value) {
-        var emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-        return emailRegex.test("" + value);
-      }
-      function isValidPassword(value) {
-        return (("" + value).length > 2);
+        return /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test('' + value);
       }
       
       function validate(credentials) {
@@ -22,14 +18,9 @@
             valid: true
           };
           
-          if (!isValidEmail(credentials.username)) {
+          if (!isValidEmail(credentials.user)) {
             reason.valid = false;
-            reason.username = ['incorrect e-mail'];
-            
-          }
-          if (!isValidPassword(credentials.password)) {
-            reason.valid = false;
-            reason.password = ['incorrect password'];
+            reason.user = ['incorrect e-mail'];
           }
           
           if (reason.valid) {

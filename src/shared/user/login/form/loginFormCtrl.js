@@ -11,13 +11,11 @@
       $scope.submit = $scope.submit || function() { console.error('loginFormController>>submit empty'); };
       $scope.error = $scope.error || function() { console.error('loginFormController>>error empty'); };
       
-      $scope.username = $scope.username || '';
-      $scope.password = $scope.password || '';
+      $scope.user = $scope.user || '';
       
       $scope.onSubmit = function() {
         var credentials = {
-          username: $scope.username,
-          password: $scope.password
+          user: $scope.user
         };
         
         formValidator

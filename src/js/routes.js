@@ -13,22 +13,21 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             template: "<page-error></page-error>"
           })
           .state('login', {
-            url: "/login/next::next",
-            template: "<login restore-sref='restore'></login>"
+            url: "/login",
+            template: "<login></login>"
+          })
+          .state('login.success', {
+            url: "/success",
+            template: "<login-success></login-success>"
           })
           .state('authenticate', {
             url: "/authenticate/:token/:uid",
             template: 'authenticating... soon you will be redirected',
             controller: ['$scope', '$state', '$stateParams', '$http', function($scope, $state, $stateParams, $http) {
-              console.log($stateParams);
               $http.post('/login', $stateParams).then(function (response) {
                 $state.go('main');
               });
             }]
-          })
-          .state('restore', {
-            url: "/restore",
-            template: "<restore></restore>"
           })
           .state('profile', {
             url: "/profile",

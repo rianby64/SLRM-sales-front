@@ -16,10 +16,8 @@
   "devDependencies": {
     "bower": "latest",
     "gulp": "latest",
-    "gulp-connect": "latest",
     "gulp-usemin": "latest",
     "gulp-watch": "latest",
-    "gulp-wrap": "latest",
     "gulp-minify-css": "latest",
     "gulp-concat": "latest",
     "gulp-less": "latest",

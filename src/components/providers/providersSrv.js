@@ -4,44 +4,24 @@
     .service('providersHTTP', ['$http', 'authService', function($http, authService) {
       
       this.add = function add(client) {
-        return $http.post("/api/providers", client, {
-//          headers: {
-//            'AUTHORIZATION': 'xToken ' + authService.getToken()
-//          }
-        });
+        return $http.post("/api/providers", client);
       };
 
       this.read = function read(criteria) {
         if (!criteria) {
-          return $http.get("/api/providers", {
-//            headers: {
-//              'AUTHORIZATION': 'xToken ' + authService.getToken()
-//            }
-          });
+          return $http.get("/api/providers");
         }
         if (criteria.id) {
-          return $http.get("/api/providers/" + criteria.id, {
-//            headers: {
-//              'AUTHORIZATION': 'xToken ' + authService.getToken()
-//            }
-          }); 
+          return $http.get("/api/providers/" + criteria.id); 
         }
       };
 
       this.remove = function remove(client) {
-        return $http.delete("/api/providers/" + client.id, {
-//          headers: {
-//            'AUTHORIZATION': 'xToken ' + authService.getToken()
-//          }
-        });
+        return $http.delete("/api/providers/" + client.id);
       };
 
       this.update = function update(client) {
-        return $http.put("/api/providers/" + client.id, client, {
-//          headers: {
-//            'AUTHORIZATION': 'xToken ' + authService.getToken()
-//          }
-        });
+        return $http.put("/api/providers/" + client.id, client);
       };
     
   }]);
