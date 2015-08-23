@@ -1,32 +1,11 @@
 ;(function() {
-  "use strict";
-  
-  
-  angular
-    .module('RDash')
-    .config(['$httpProvider', function($httpProvider) {  
-      // alternatively, register the interceptor via an anonymous factory
-      $httpProvider.interceptors.push(['$q', '$location', '$injector', httpproviderinterceptor]);
-      
-      function httpproviderinterceptor($q, $location, $injector) {
-        return {
-          responseError: function(rejection) {
-            if (rejection.status === 401) {
-              var $state = $injector.get('$state');
-              var next = $location.path();
-              $state.go('login', { next: next });
-            }
-            return $q.reject(rejection);
-          }
-        };
-      }
-  }]);
-  
+  "use strict";  
   
   angular
     .module('RDash')
     .factory('authService', ['$state', '$stateParams', '$q', '$http', function($state, $stateParams, $q, $http) {
     var authService = {},
+        user = {},
         LOGIN_UI_REF = 'login',
         LOGIN_SUCCESS_UI_REF = 'login.success',
         MAIN_UI_REF = 'main',
@@ -71,10 +50,16 @@
     function check() {
       if (!checked) {
         checked = true;
-        $http.get('/check');
+        return $http.get('/check').then(function(response) {
+          user = response.data;
+          return user; // by http request
+        });
       }
+      return $q(function(resolve, reject) {
+        resolve(user); // by cache
+      });
     }
-      
+    
     authService.requestToken = requestToken;
     authService.logout = logout;
     authService.check = check;

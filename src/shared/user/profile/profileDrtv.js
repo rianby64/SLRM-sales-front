@@ -7,7 +7,7 @@
       return {
         restrict: 'E',
         scope: {
-          
+          entity: '='
         },
         controller: 'profileController',
         templateUrl: 'shared/user/profile/profileTmpl.html'        
