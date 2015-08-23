@@ -12,14 +12,6 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             url: "/not-found",
             template: "<page-error></page-error>"
           })
-          .state('login', {
-            url: "/login",
-            template: "<login></login>"
-          })
-          .state('login.success', {
-            url: "/success",
-            template: "<login-success></login-success>"
-          })
           .state('authenticate', {
             url: "/authenticate/:token/:uid",
             template: 'authenticating... soon you will be redirected',
@@ -28,10 +20,6 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 $state.go('main');
               });
             }]
-          })
-          .state('profile', {
-            url: "/profile",
-            template: "<profile></profile>"
           })
           .state('main', {
             url: "/main",
