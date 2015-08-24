@@ -20,6 +20,20 @@
             base="main.providers" \
             title="Поставщики"> \
           </entity>'
+        })
+        .state('main.manufacturers', {
+          abstract: true,
+          url: "/manufacturers",
+          controller: 'manufacturersController',
+          template: '\
+          <entity \
+            read=read \
+            add=add \
+            remove=remove \
+            update=update \
+            base="main.manufacturers" \
+            title="Производители"> \
+          </entity>'
         });
       
     }]);

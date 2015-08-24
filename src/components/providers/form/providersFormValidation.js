@@ -8,7 +8,7 @@
     function($q) {
       var formValidator = {};
       
-      function validate(client) {
+      function validate(type, provider) {
         
         return $q(function(resolve, reject) {
           var reason = {
@@ -16,7 +16,9 @@
           };
           
           if (reason.valid) {
-            resolve(client);
+            var newProvider = angular.copy(provider);
+            newProvider.type = type;
+            resolve(newProvider);
           }
           reject(reason);
         });

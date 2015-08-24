@@ -8,8 +8,8 @@
       };
 
       this.read = function read(criteria) {
-        if (!criteria) {
-          return $http.get("/api/providers");
+        if (!criteria.id) {
+          return $http.get("/api/providers", { params: criteria });
         }
         if (criteria.id) {
           return $http.get("/api/providers/" + criteria.id); 

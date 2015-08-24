@@ -10,8 +10,20 @@
           url: "/show",
           template: '\
           <entity-table \
+            type="providers" \
             entities=entities \
             base="main.providers" \
+            template-table-row="providers-table-row" \
+            template-table-header="providers-table-header"> \
+          </entity-table>'
+        })
+        .state('main.manufacturers.show', {
+          url: "/show",
+          template: '\
+          <entity-table \
+            type="manufacturers" \
+            entities=entities \
+            base="main.manufacturers" \
             template-table-row="providers-table-row" \
             template-table-header="providers-table-header"> \
           </entity-table>'
