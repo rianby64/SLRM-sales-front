@@ -67,7 +67,7 @@ gulp.task('custom-images', function() {
 
 gulp.task('custom-js', function() {
     return gulp.src([paths.scripts, paths.scriptsComponents, paths.scriptsShared])
-        .pipe(minifyJs())
+        //.pipe(minifyJs())
         .pipe(concat('dashboard.min.js'))
         .pipe(gulp.dest('dist/js'));
 });

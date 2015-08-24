@@ -1,4 +1,5 @@
 <hr>
+{{ totalQuantity }} шт, итого ${{ totalPrice }}<br>
 <table class="table">
   <caption>Список товаров</caption>
   <thead>
@@ -9,6 +10,11 @@
     </tr>
   </thead>
   <tbody>
+    <tr ng-repeat="entry in entriesCommpropGoods">
+      <td>{{entry.good.name}}</td>
+      <td>{{entry.quantity}} шт, ${{entry.price}}<br>${{entry.price*entry.quantity}}</td>
+      <td><button ng-click="onRemoveCommpropGoods(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
+    </tr>
     <tr>
       <td>
         <ui-select ng-model="entry.good"
@@ -26,11 +32,6 @@
       </td>
       <td><input ng-model="price" type="number" class="form-control" /><br><input ng-model="quantity" type="number" class="form-control" /></td>
       <td><button ng-click="onAddCommpropGoods()" class="btn btn-default glyphicon glyphicon-plus"></button></td>
-    </tr>
-    <tr ng-repeat="entry in entriesCommpropGoods">
-      <td>{{entry.good.name}}</td>
-      <td>{{entry.quantity}} шт, ${{entry.price}}<br>${{entry.price*entry.quantity}}</td>
-      <td><button ng-click="onRemoveCommpropGoods(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
     </tr>
   </tbody>
 </table>

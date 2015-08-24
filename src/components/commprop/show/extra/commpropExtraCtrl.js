@@ -16,6 +16,9 @@
         $scope.quantity = 1;
       };
       
+      $scope.totalPrice = 0;
+      $scope.totalQuantity = 0;
+      
       $scope.quantity = 0;
       $scope.price = 0;
       $scope.goodId = 0;
@@ -26,6 +29,10 @@
       
       commpropGoodsHTTP.read().success(function(response) {
         $scope.entriesCommpropGoods = response;
+        for (var i = 0; i < $scope.entriesCommpropGoods.length; i++) {
+          $scope.totalQuantity += $scope.entriesCommpropGoods[i].quantity;
+          $scope.totalPrice += $scope.entriesCommpropGoods[i].price * $scope.entriesCommpropGoods[i].quantity;
+        }
       });
       
       $scope.onAddCommpropGoods = function() {

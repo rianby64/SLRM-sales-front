@@ -15,11 +15,11 @@
              theme="bootstrap"
              ng-disabled="disabled"
              reset-search-input="false">
-          <ui-select-match placeholder="Поставщики...">{{$select.selected.legal_name}}</ui-select-match>
+          <ui-select-match placeholder="Поставщики...">{{$select.selected.organization_name}}</ui-select-match>
           <ui-select-choices repeat="provider in providers track by $index"
                    refresh="refreshProviders($select.search)"
                    refresh-delay="0">
-            <div ng-bind-html="provider.legal_name | highlight: $select.search"></div>
+            <div ng-bind-html="provider.organization_name | highlight: $select.search"></div>
           </ui-select-choices>
         </ui-select>
       </td>

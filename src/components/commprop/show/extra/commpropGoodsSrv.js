@@ -7,44 +7,24 @@
         commercialProposalId = id;
       };
       this.add = function add(commprop) {
-        return $http.post("/api/commprop/" + commercialProposalId + "/goods", commprop, {
-//          headers: {
-//            'AUTHORIZATION': 'xToken ' + authService.getToken()
-//          }
-        });
+        return $http.post("/api/commprop/" + commercialProposalId + "/goods", commprop);
       };
 
       this.read = function read(criteria) {
         if (!criteria) {
-          return $http.get("/api/commprop/" + commercialProposalId + "/goods", {
-//            headers: {
-//              'AUTHORIZATION': 'xToken ' + authService.getToken()
-//            }
-          });
+          return $http.get("/api/commprop/" + commercialProposalId + "/goods");
         }
         if (criteria.id) {
-          return $http.get("/api/commprop/" + commercialProposalId + "/goods/" + criteria.id, {
-//            headers: {
-//              'AUTHORIZATION': 'xToken ' + authService.getToken()
-//            }
-          }); 
+          return $http.get("/api/commprop/" + commercialProposalId + "/goods/" + criteria.id); 
         }
       };
 
       this.remove = function remove(commprop) {
-        return $http.delete("/api/commprop/" + commercialProposalId + "/goods/" + commprop.id, {
-//          headers: {
-//            'AUTHORIZATION': 'xToken ' + authService.getToken()
-//          }
-        });
+        return $http.delete("/api/commprop/" + commercialProposalId + "/goods/" + commprop.id);
       };
 
       this.update = function update(commprop) {
-        return $http.put("/api/commprop/" + commercialProposalId + "/goods/" + commprop.id, commprop, {
-//          headers: {
-//            'AUTHORIZATION': 'xToken ' + authService.getToken()
-//          }
-        });
+        return $http.put("/api/commprop/" + commercialProposalId + "/goods/" + commprop.id, commprop);
       };
     
   }]);
