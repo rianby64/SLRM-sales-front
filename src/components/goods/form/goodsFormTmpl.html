@@ -10,10 +10,7 @@
   <label for="entityForm.price">Цена</label>
   <input type="number" class="form-control" id="entityForm.price" placeholder="Цена" ng-model="entity.price">
 </div>
-<div class="form-group">
-  <label for="entityForm.manufacturer">Производитель</label>
-  <input type="text" class="form-control" id="entityForm.manufacturer" placeholder="Производитель" ng-model="entity.manufacturer">
-</div>
+
 <div class="form-group">
   <label for="entityForm.description">Описание</label>
   <input type="text" class="form-control" id="entityForm.description" placeholder="Описание" ng-model="entity.description">
@@ -30,6 +27,21 @@
              refresh="refreshCategories($select.search)"
              refresh-delay="0">
       <div ng-bind-html="category.name | highlight: $select.search"></div>
+    </ui-select-choices>
+  </ui-select>
+</div>
+
+<div class="form-group">
+  <label for="entityForm.providerId">Производитель</label>
+  <ui-select ng-model="entity.provider"
+             theme="bootstrap"
+             ng-disabled="disabled"
+             reset-search-input="false">
+    <ui-select-match placeholder="Производитель...">{{$select.selected.organization_name}}</ui-select-match>
+    <ui-select-choices repeat="provider in providers track by $index"
+             refresh="refreshProviders($select.search)"
+             refresh-delay="0">
+      <div ng-bind-html="provider.organization_name | highlight: $select.search"></div>
     </ui-select-choices>
   </ui-select>
 </div>

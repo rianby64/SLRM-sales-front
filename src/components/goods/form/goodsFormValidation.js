@@ -8,24 +8,26 @@
     function($q) {
       var formValidator = {};
       
-      function validate(client) {
+      function validate(good) {
         
         return $q(function(resolve, reject) {
           var reason = {
             valid: true
           };
           
-          if (client.price < 0) {
+          if (good.price < 0) {
             reason.valid = false;
             reason.price = ['price is negative'];
           }
           
           if (reason.valid) {
-            var form = angular.copy(client);
+            var form = angular.copy(good);
             
             delete form.category;
+            delete form.provider;
             
-            form.categoryId = client.category.id;
+            form.categoryId = good.category.id;
+            form.providerId = good.provider.id;
             resolve(form);
           }
           reject(reason);
