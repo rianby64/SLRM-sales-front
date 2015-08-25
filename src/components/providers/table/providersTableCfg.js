@@ -10,7 +10,6 @@
           url: "/show",
           template: '\
           <entity-table \
-            type="providers" \
             entities=entities \
             base="main.providers" \
             template-table-row="providers-table-row" \
@@ -21,7 +20,6 @@
           url: "/show",
           template: '\
           <entity-table \
-            type="manufacturers" \
             entities=entities \
             base="main.manufacturers" \
             template-table-row="providers-table-row" \

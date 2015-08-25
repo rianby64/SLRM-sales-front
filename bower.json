@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "rdash-ui": "latest",
-    "angular": "~1.4.4",
+    "angular": "latest",
     "angular-cookies": "latest",
     "angular-bootstrap": "latest",
     "angular-ui-router": "latest",

@@ -24,7 +24,6 @@
           }],
           template: '\
           <entity-detail \
-            type="providers" \
             cancel=back \
             entity=entity \
             template-detail="providers-show"> \
@@ -47,7 +46,6 @@
           }],
           template: '\
           <entity-detail \
-            type="manufacturers" \
             cancel=back \
             entity=entity \
             template-detail="providers-show"> \
