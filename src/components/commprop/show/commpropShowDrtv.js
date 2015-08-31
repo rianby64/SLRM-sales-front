@@ -10,6 +10,7 @@
           entity: '=',
           onCancel: '='
         },
+        controller: 'commpropShowController',
         templateUrl: 'components/commprop/show/commpropShowTmpl.html'        
       };
     });

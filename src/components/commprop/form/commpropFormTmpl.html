@@ -32,6 +32,26 @@
 </div>
 
 <div class="form-group">
+  <label for="entityForm.alert_date">Дата оповещания</label>
+  <div class='input-group date'>
+    <input type='text' class="form-control" datetimepicker format="MMMM DD, YYYY" ng-model="entity.alert_date" />
+    <span class="input-group-addon">
+      <span class="glyphicon glyphicon-calendar"></span>
+    </span>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="entityForm.sent_date">Дата отправки</label>
+  <div class='input-group date'>
+    <input type='text' class="form-control" datetimepicker format="MMMM DD, YYYY" ng-model="entity.sent_date" />
+    <span class="input-group-addon">
+      <span class="glyphicon glyphicon-calendar"></span>
+    </span>
+  </div>
+</div>
+
+<div class="form-group">
   <label for="entityForm.comments">Коментарии</label>
   <input type="comments" class="form-control" id="entityForm.comments" placeholder="Коментарии" ng-model="entity.comments">
 </div>

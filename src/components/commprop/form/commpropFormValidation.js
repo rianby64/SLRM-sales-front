@@ -22,8 +22,8 @@
           delete form.client;
           delete form.broker;
 
-          form.clientId = commprop.client.id;
-          form.brokerId = commprop.broker.id;
+          if (commprop.client) { form.clientId = commprop.client.id; }
+          if (commprop.broker) { form.brokerId = commprop.broker.id; }
 
           if (reason.valid) {
             resolve(form);

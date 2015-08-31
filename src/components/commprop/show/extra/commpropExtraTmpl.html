@@ -13,11 +13,12 @@
     <tr ng-repeat="entry in entriesCommpropGoods">
       <td>{{entry.good.name}}</td>
       <td>{{entry.quantity}} шт, ${{entry.price}}<br>${{entry.price*entry.quantity}}</td>
-      <td><button ng-click="onRemoveCommpropGoods(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
+      <td><button ng-disabled=checkStatus() ng-click="onRemoveCommpropGoods(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
     </tr>
     <tr>
       <td>
         <ui-select ng-model="entry.good"
+             ng-disabled=checkStatus()
              theme="bootstrap"
              ng-disabled="disabled"
              reset-search-input="false"
@@ -30,8 +31,8 @@
           </ui-select-choices>
         </ui-select>
       </td>
-      <td><input ng-model="price" type="number" class="form-control" /><br><input ng-model="quantity" type="number" class="form-control" /></td>
-      <td><button ng-click="onAddCommpropGoods()" class="btn btn-default glyphicon glyphicon-plus"></button></td>
+      <td><input ng-disabled=checkStatus() ng-model="price" type="number" class="form-control" /><br><input ng-disabled=checkStatus() ng-model="quantity" type="number" class="form-control" /></td>
+      <td><button ng-disabled=checkStatus() ng-click="onAddCommpropGoods()" class="btn btn-default glyphicon glyphicon-plus"></button></td>
     </tr>
   </tbody>
 </table>
