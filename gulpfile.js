@@ -19,6 +19,7 @@ var paths = {
     templates: 'src/templates/**/*.html',
     index: 'src/index.html',
     favicon: 'src/favicon.png',
+    logo: 'src/logo.png',
     bower_fonts: 'src/bower_components/**/*.{ttf,woff,woff2,eof,svg}',
 };
 
@@ -39,6 +40,10 @@ gulp.task('usemin', function() {
 
 gulp.task('favicon', function() {
     return gulp.src(paths.favicon)
+        .pipe(gulp.dest('dist/'));
+});
+gulp.task('logo', function() {
+    return gulp.src(paths.logo)
         .pipe(gulp.dest('dist/'));
 });
 
@@ -114,5 +119,5 @@ gulp.task('watch', function() {
 /**
  * Gulp tasks
  */
-gulp.task('build', ['usemin', 'favicon', 'build-assets', 'build-custom']);
+gulp.task('build', ['usemin', 'favicon', 'logo', 'build-assets', 'build-custom']);
 gulp.task('default', ['build', 'watch']);

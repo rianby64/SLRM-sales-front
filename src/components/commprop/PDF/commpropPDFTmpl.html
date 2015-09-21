@@ -1,8 +1,15 @@
-Заказ № {{commprop.id}}<br>
-{{commprop.client.first_name}} {{commprop.client.last_name}}<br>
-{{commprop.broker.first_name}} {{commprop.broker.middle_name}} {{commprop.broker.last_name}}<br>
-от {{commprop.createdAt | date: "yyyy MMM dd"}}
-
+<table>
+  <tr>
+    <td><img ng-src="/logo.png" height="100px"></td>
+    <td>
+      <table>
+        <tr><td>Заказ № {{commprop.id}}</td></tr>
+        <tr><td>{{commprop.client.first_name}} {{commprop.client.last_name}}</td></tr>
+        <tr><td>от {{commprop.createdAt | date: "yyyy MMM dd"}}</td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
 <table class="table">
   <thead>
     <th>Название</th>
@@ -29,3 +36,10 @@
     </tr>
   </tbody>
 </table>
+<br>
+Наши контакты:<br>
+Россия, г. Казань, Ул. Достоевского 33<br>
+Салон Преми<br>
++7 (843) 222-33-44<br>
+<br>
+Будем ради Вам помочь и т.д.
