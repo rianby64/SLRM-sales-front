@@ -1,9 +1,6 @@
 <div class="form-group">
-  <label for="entityForm.type">type</label>
-  <select class="form-control" ng-model="entity.type" id="entityForm.type">
-    <option value="natural">Физ-лицо</option>
-    <option value="legal">Юр-лицо</option>
-  </select>
+  <label for="entityForm.type">Тип</label>
+  <select class="form-control" ng-model="entity.type" ng-options="value.type as value.text for value in personTypes" id="entityForm.type"></select>
 </div>
 <div ng-show="naturalPerson">
   <div class="form-group">

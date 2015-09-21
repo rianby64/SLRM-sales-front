@@ -19,7 +19,7 @@ var paths = {
     templates: 'src/templates/**/*.html',
     index: 'src/index.html',
     favicon: 'src/favicon.png',
-    bower_fonts: 'src/bower_components/**/*.{ttf,woff,eof,svg}',
+    bower_fonts: 'src/bower_components/**/*.{ttf,woff,woff2,eof,svg}',
 };
 
 /**

@@ -10,6 +10,10 @@
           url: "/create",
           controller: ['$scope', 'brokersFormValidator', function($scope, brokersFormValidator) {
             $scope.validate = brokersFormValidator.validate;
+            $scope.entity = $scope.entity || {
+              type: 'natural'
+            };
+            console.log($scope.entity, 'from state');
           }],
           template: '\
           <entity-form \
