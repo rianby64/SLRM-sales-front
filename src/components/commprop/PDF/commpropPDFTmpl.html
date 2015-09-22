@@ -23,9 +23,9 @@
     <tr ng-repeat="good in goods">
       <td>{{good.good.name}}</td>
       <td>{{good.good.provider.organization_name}}</td>
-      <td>${{good.good.price}}</td>
+      <td>${{good.price}}</td>
       <td>{{good.quantity}} шт</td>
-      <td>${{good.quantity*good.good.price}}</td>
+      <td>${{good.quantity*good.price}}</td>
       <td><img ng-repeat="photo in good.photos" ng-src={{photo.path|goodsphotosreplacethumb}} class="img-responsive" alt="Responsive image"></td>
     </tr>
     <tr>

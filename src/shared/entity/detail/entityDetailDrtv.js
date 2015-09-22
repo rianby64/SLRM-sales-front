@@ -15,7 +15,7 @@
         },
         controller: 'entityDetailController',
         template: function(elem, attrs) {
-          return '<div class="container" ' + attrs.templateDetail + ' entity=entity on-cancel="onCancel"></div>'
+          return '<div ' + attrs.templateDetail + ' entity=entity on-cancel="onCancel"></div>'
         }
       };
     });

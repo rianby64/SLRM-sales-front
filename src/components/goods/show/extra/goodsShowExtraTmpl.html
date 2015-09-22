@@ -1,10 +1,11 @@
-<hr ng-hide=true>
-<table class="table" ng-hide=true>
+<!--
+<hr>
+<table class="table">
   <caption>Поставщики товара</caption>
   <thead>
     <tr>
       <th>Название</th>
-<!--      <th>Цена</th>-->
+      <th>Цена</th>
       <th></th>
     </tr>
   </thead>
@@ -23,42 +24,33 @@
           </ui-select-choices>
         </ui-select>
       </td>
-<!--      <td><input ng-model="price" type="number" class="form-control" /></td>-->
+      <td><input ng-model="price" type="number" class="form-control" /></td>
       <td><button ng-click="onAddGoodsProviders()" class="btn btn-default glyphicon glyphicon-plus"></button></td>
     </tr>
     <tr ng-repeat="entry in entriesGoodsProviders">
       <td>{{entry.provider.legal_name}}</td>
-<!--      <td>{{entry.price}}</td>-->
+      <td>{{entry.price}}</td>
       <td><button ng-click="onRemoveGoodsProviders(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
     </tr>
   </tbody>
 </table>
+-->
 <hr>
+<span>Изображения товара</span>
 <table class="table">
-  <caption>Изображения товара</caption>
-  <thead>
-    <tr>
-      <th>Изображение</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <button type="button" class="btn btn-default btn-block" ngf-select ng-model="photo" ngf-capture="'camera'" accept="image/*" ngf-accept="'image/*'">
-          <span class="glyphicon glyphicon-plus"></span>
-        </button>
-        <div class="progress" ng-model="progressPercentage" ng-hide="!uploadingFile">
-		  <div class="progress-bar" role="progressbar" aria-valuenow="{{progressPercentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progressPercentage}}%;">
-		    <span class="sr-only">{{progressPercentage}}% Complete</span>
-		  </div>
-		</div>
-      </td>
-      <td></td>
-    </tr>
-    <tr ng-repeat="entry in entriesGoodsPhotos">
-      <td><img ng-src={{entry.path|goodsphotosreplace}} class="img-responsive" alt="Responsive image"></td>
-      <td><button ng-click="onRemoveGoodsPhotos(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
-    </tr>
-  </tbody>
+  <tr>
+    <td>
+      <button type="button" class="btn btn-default" ngf-select ng-model="photo" ngf-capture="'camera'" accept="image/*" ngf-accept="'image/*'">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+      <div class="progress" ng-model="progressPercentage" ng-hide="!uploadingFile">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{progressPercentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progressPercentage}}%;">
+          <span class="sr-only">{{progressPercentage}}% Complete</span>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr ng-repeat="entry in entriesGoodsPhotos">
+    <td><img ng-src={{entry.path|goodsphotosreplace}} class="img-responsive" alt="Responsive image"></td><td><button ng-click="onRemoveGoodsPhotos(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
+  </tr>
 </table>
