@@ -48,14 +48,17 @@
     }
       
     function check() {
+      checked = false;
       if (!checked) {
-        checked = true;
         return $http.get('/check').then(function(response) {
+          console.log(response, 'after check');
+          checked = true;
           user = response.data;
           return user; // by http request
         });
       }
       return $q(function(resolve, reject) {
+        console.log('resolving');
         resolve(user); // by cache
       });
     }
