@@ -4,6 +4,7 @@
     .service('commpropHTTP', ['$http', 'authService', function($http, authService) {
     
       this.add = function add(client) {
+//        console.log(authService.user);
         return $http.post("/api/commprop", client);
       };
 

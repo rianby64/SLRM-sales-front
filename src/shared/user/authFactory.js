@@ -51,7 +51,6 @@
       checked = false;
       if (!checked) {
         return $http.get('/check').then(function(response) {
-          console.log(response, 'after check');
           checked = true;
           user = response.data;
           return user; // by http request
@@ -66,6 +65,7 @@
     authService.requestToken = requestToken;
     authService.logout = logout;
     authService.check = check;
+//    authService.user = user;
     
     return authService;
   }]);
