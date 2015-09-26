@@ -4,8 +4,7 @@
   angular
     .module('RDash')
     .factory('authService', ['$state', '$stateParams', '$q', '$http', function($state, $stateParams, $q, $http) {
-    var authService = {},
-        user = {},
+    var authService = {}, user = {},
         LOGIN_UI_REF = 'login',
         LOGIN_SUCCESS_UI_REF = 'login.success',
         MAIN_UI_REF = 'main',
@@ -48,24 +47,30 @@
     }
       
     function check() {
+      console.log('init', user, checked);
       checked = false;
       if (!checked) {
+        console.log('!checked', user, checked);
         return $http.get('/check').then(function(response) {
           checked = true;
           user = response.data;
+          console.log('http', user, checked);
+          authService.user = user;
           return user; // by http request
         });
       }
+      console.log('checked', user, checked);
       return $q(function(resolve, reject) {
-        console.log('resolving');
-        resolve(user); // by cache
+        console.log('resplved', user, checked);
+        authService.user = user;
+        resolve(authService.user); // by cache
       });
     }
     
     authService.requestToken = requestToken;
     authService.logout = logout;
     authService.check = check;
-//    authService.user = user;
+    authService.user = user;
     
     return authService;
   }]);

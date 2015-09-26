@@ -6,6 +6,7 @@
         <tr><td>Заказ № {{commprop.id}}</td></tr>
         <tr><td>{{commprop.client.first_name}} {{commprop.client.last_name}}</td></tr>
         <tr><td>от {{commprop.createdAt | date: "yyyy MMM dd"}}</td></tr>
+        <tr><td>Отправил {{manager.name}}, {{manager.telephone}}</td></tr>
       </table>
     </td>
   </tr>

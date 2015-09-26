@@ -8,18 +8,26 @@
       'commpropHTTP', 
       'commpropGoodsHTTP',
       'goodsPhotosHTTP',
-      function($scope, $stateParams, commpropHTTP, commpropGoodsHTTP, goodsPhotosHTTP) {
+      'authService',
+      function($scope, $stateParams, commpropHTTP, commpropGoodsHTTP, goodsPhotosHTTP, authService) {
         $scope.error = $scope.error || function() { console.log('commpropPDF:config:state:controller>>error empty'); };
         $scope.commprop = {};
         $scope.goods = [];
         $scope.totalPrice = 0;
         $scope.totalCount = 0;
+        $scope.manager = {};
+        $scope.manager.name = '';
+        $scope.manager.telephone = '';
         
         commpropHTTP
         .read({
           id: $stateParams.id
         })
         .success(function(commprop) {
+          authService.check().then(function(user) {
+            $scope.manager.name = authService.user.name;
+            $scope.manager.telephone = authService.user.name;
+          });
           $scope.commprop = commprop;
           $scope.totalPrice = 0;
           $scope.totalCount = 0;

@@ -4,10 +4,12 @@
   angular
     .module('RDash')
     .factory('commpropFormValidator', [
-    '$q',
-    function($q) {
-      var formValidator = {};
-      
+    '$q', 'authService',
+    function($q, authService) {
+      var formValidator = {}, manager;
+      authService.check().then(function(user) {
+        manager = user;
+      });
       function validate(commprop) {
         
         
@@ -18,6 +20,7 @@
           
           
           var form = angular.copy(commprop);
+          form.author = manager.name;
 
           delete form.client;
           delete form.broker;
