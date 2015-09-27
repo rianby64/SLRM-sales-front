@@ -3,8 +3,8 @@
   <td>{{ entity.price }} {{ entity.currency }}</td>
   <!-- <standar behavior -->
    <td class="entity-row-action">
-    <a ui-sref="{{base}}.detail.extra({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-info-sign"></a>
     <a ui-sref="{{base}}.edit({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-pencil"></a>
+    <a ui-sref="{{base}}.detail.extra({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-info-sign"></a>
     <entity-modal entity=entity submit=onRemove template-detail="goods-show"></entity-modal>
   </td>
   <!-- standar behavior> -->
