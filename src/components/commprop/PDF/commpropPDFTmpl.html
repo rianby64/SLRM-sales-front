@@ -24,15 +24,15 @@
     <tr ng-repeat="good in goods">
       <td>{{good.good.name}}</td>
       <td>{{good.good.provider.organization_name}}</td>
-      <td>${{good.price}}</td>
+      <td>{{good.price}} {{good.currency}}</td>
       <td>{{good.quantity}} шт</td>
-      <td>${{good.quantity*good.price}}</td>
+      <td>{{good.quantity*good.price}} {{good.currency}}</td>
       <td><img ng-repeat="photo in good.photos" ng-src={{photo.path|goodsphotosreplacethumb}} class="img-responsive" alt="Responsive image"></td>
     </tr>
     <tr>
       <td colspan="3">Итого</td>
       <td>{{totalCount}} шт</td>
-      <td>${{totalPrice}}</td>
+      <td></td>
       <td></td>
     </tr>
   </tbody>

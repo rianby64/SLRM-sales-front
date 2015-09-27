@@ -7,8 +7,14 @@
   <input type="text" class="form-control" id="entityForm.name" placeholder="Название" ng-model="entity.name" required>
 </div>
 <div class="form-group">
-  <label for="entityForm.price">Цена</label>
-  <input type="number" class="form-control" id="entityForm.price" placeholder="Цена" ng-model="entity.price">
+  <div class="col-xs-6">
+    <label for="entityForm.price">Цена</label>
+    <input type="number" class="form-control" id="entityForm.price" placeholder="Цена" ng-model="entity.price">
+  </div>
+  <div class="col-xs-6">
+    <label for="entityForm.currency">Валюта</label>
+    <select class="form-control" ng-model="entity.currency" ng-options="value.type as value.text for value in currencyTypes" id="entityForm.currency"></select>
+  </div>
 </div>
 
 <div class="form-group">

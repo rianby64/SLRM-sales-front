@@ -1,4 +1,3 @@
-<!--
 <hr>
 <table class="table">
   <caption>Поставщики товара</caption>
@@ -10,6 +9,11 @@
     </tr>
   </thead>
   <tbody>
+    <tr ng-repeat="entry in entriesGoodsProviders">
+      <td>{{entry.provider.legal_name}}</td>
+      <td>{{entry.price}} {{entry.currency}}</td>
+      <td><button ng-click="onRemoveGoodsProviders(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
+    </tr>
     <tr>
       <td>
         <ui-select ng-model="entry.provider"
@@ -24,17 +28,15 @@
           </ui-select-choices>
         </ui-select>
       </td>
-      <td><input ng-model="price" type="number" class="form-control" /></td>
+      <td>
+        <input ng-model="price" type="number" class="form-control" /><br>
+        <label for="entityForm.currency">Валюта</label>
+        <select class="form-control" ng-model="currency" ng-options="value.type as value.text for value in currencyTypes" id="entityForm.currency"></select>
+      </td>
       <td><button ng-click="onAddGoodsProviders()" class="btn btn-default glyphicon glyphicon-plus"></button></td>
-    </tr>
-    <tr ng-repeat="entry in entriesGoodsProviders">
-      <td>{{entry.provider.legal_name}}</td>
-      <td>{{entry.price}}</td>
-      <td><button ng-click="onRemoveGoodsProviders(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
     </tr>
   </tbody>
 </table>
--->
 <hr>
 <span>Изображения товара</span>
 <table class="table">

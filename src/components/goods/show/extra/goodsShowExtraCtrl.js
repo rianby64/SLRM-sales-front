@@ -5,6 +5,7 @@
     .controller('goodsShowExtraController', ['$scope', '$stateParams', 'providersHTTP', 'goodsProvidersHTTP', 'goodsPhotosHTTP', 'Upload', function($scope, $stateParams, providersHTTP, goodsProvidersHTTP, goodsPhotosHTTP, Upload) {
       
       $scope.entry = {};
+      $scope.currencyTypes = [{ type: 'RUB', text: 'RUB' },{ type: 'EUR', text: 'EUR' },{ type: 'USD', text: 'USD' }];
       $scope.refreshProviders = function(provider) {
         providersHTTP.read().success(function(response) {
           $scope.providers = response;
@@ -13,6 +14,7 @@
       $scope.progressPercentage = 0;
       $scope.uploadingFile = false;
       
+      $scope.currency = 'RUB';
       $scope.price = 0;
       $scope.providerId = 0;
       $scope.goodId = parseInt($stateParams.id, 10);
@@ -72,6 +74,7 @@
       $scope.onAddGoodsProviders = function() {
         var entry = {
           price: $scope.price,
+          currency: $scope.currency,
           providerId: $scope.entry.provider.id,
           goodId: $scope.goodId
         };

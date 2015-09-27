@@ -5,6 +5,7 @@
     .controller('commpropExtraController', ['$scope', '$stateParams', 'goodsHTTP', 'commpropGoodsHTTP', function($scope, $stateParams, goodsHTTP, commpropGoodsHTTP) {
       
       $scope.entry = {};
+      $scope.currencyTypes = [{ type: 'RUB', text: 'RUB' },{ type: 'EUR', text: 'EUR' },{ type: 'USD', text: 'USD' }];
       $scope.refreshGoods = function(provider) {
         goodsHTTP.read().success(function(response) {
           $scope.goods = response;
@@ -12,6 +13,7 @@
       };
       
       $scope.onSelectGood = function(item, model) {
+        $scope.currency = item.currency;
         $scope.price = item.price;
         $scope.quantity = 1;
       };
@@ -21,6 +23,7 @@
       
       $scope.quantity = 0;
       $scope.price = 0;
+      $scope.currency = '';
       $scope.goodId = 0;
       $scope.commercialProposalId = parseInt($stateParams.id, 10);
       commpropGoodsHTTP.setCommercialProposalId($scope.commercialProposalId);
@@ -38,6 +41,7 @@
       $scope.onAddCommpropGoods = function() {
         var entry = {
           price: $scope.price,
+          currency: $scope.currency,
           quantity: $scope.quantity,
           goodId: $scope.entry.good.id,
           commercialProposalId: $scope.commercialProposalId

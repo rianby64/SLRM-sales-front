@@ -1,5 +1,5 @@
 <hr>
-{{ totalQuantity }} шт, итого ${{ totalPrice }}<br>
+<!--{{ totalQuantity }} шт, итого ${{ totalPrice }}<br>-->
 <table class="table">
   <caption>Список товаров</caption>
   <thead>
@@ -12,7 +12,7 @@
   <tbody>
     <tr ng-repeat="entry in entriesCommpropGoods">
       <td>{{entry.good.name}}</td>
-      <td>{{entry.quantity}} шт, ${{entry.price}}<br>${{entry.price*entry.quantity}}</td>
+      <td>{{entry.quantity}} шт, {{entry.price}} {{entry.currency}}<br>{{entry.price*entry.quantity}} {{entry.currency}}</td>
       <td><button ng-disabled=checkStatus() ng-click="onRemoveCommpropGoods(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
     </tr>
     <tr>
@@ -31,7 +31,12 @@
           </ui-select-choices>
         </ui-select>
       </td>
-      <td><input ng-disabled=checkStatus() ng-model="price" type="number" class="form-control" /><br><input ng-disabled=checkStatus() ng-model="quantity" type="number" class="form-control" /></td>
+      <td>
+        <input ng-disabled=checkStatus() ng-model="price" type="number" class="form-control" /><br>
+        <label>Валюта</label>
+        <select class="form-control" ng-model="currency" ng-options="value.type as value.text for value in currencyTypes"></select><br>
+        <label>Количество</label>
+        <input ng-disabled=checkStatus() ng-model="quantity" type="number" class="form-control" /></td>
       <td><button ng-disabled=checkStatus() ng-click="onAddCommpropGoods()" class="btn btn-default glyphicon glyphicon-plus"></button></td>
     </tr>
   </tbody>
