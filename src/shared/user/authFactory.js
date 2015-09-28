@@ -47,21 +47,16 @@
     }
       
     function check() {
-      console.log('init', user, checked);
       checked = false;
       if (!checked) {
-        console.log('!checked', user, checked);
         return $http.get('/check').then(function(response) {
           checked = true;
           user = response.data;
-          console.log('http', user, checked);
           authService.user = user;
           return user; // by http request
         });
       }
-      console.log('checked', user, checked);
       return $q(function(resolve, reject) {
-        console.log('resplved', user, checked);
         authService.user = user;
         resolve(authService.user); // by cache
       });

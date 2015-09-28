@@ -13,21 +13,22 @@
       };
       
       $scope.onSelectGood = function(item, model) {
-        $scope.currency = item.currency;
-        $scope.price = item.price;
-        $scope.quantity = 1;
+        $scope.entry.goodId = item.id;
+        $scope.entry.currency = item.currency;
+        $scope.entry.price = item.price;
+        $scope.entry.quantity = 1;
       };
       
       $scope.totalPrice = 0;
       $scope.totalQuantity = 0;
       
-      $scope.quantity = 0;
-      $scope.price = 0;
-      $scope.currency = '';
-      $scope.delivery_date = '';
-      $scope.goodId = 0;
-      $scope.commercialProposalId = parseInt($stateParams.id, 10);
-      commpropGoodsHTTP.setCommercialProposalId($scope.commercialProposalId);
+      $scope.entry.quantity = 0;
+      $scope.entry.price = 0;
+      $scope.entry.currency = '';
+      $scope.entry.delivery_date = '';
+      $scope.entry.goodId = 0;
+      $scope.entry.commercialProposalId = parseInt($stateParams.id, 10);
+      commpropGoodsHTTP.setCommercialProposalId($scope.entry.commercialProposalId);
       
       $scope.entriesGoods = [];
       
@@ -40,26 +41,16 @@
       });
       
       $scope.onAddCommpropGoods = function() {
-        var entry = {
-          price: $scope.price,
-          delivery_date: $scope.delivery_date,
-          currency: $scope.currency,
-          quantity: $scope.quantity,
-          goodId: $scope.entry.good.id,
-          commercialProposalId: $scope.commercialProposalId
-        };
-        
-        commpropGoodsHTTP.add(entry).success(function(response) {
+        commpropGoodsHTTP.add($scope.entry).success(function(response) {
           response.good = {
             name: $scope.entry.good.name
           };
           $scope.entriesCommpropGoods.push(response);
-          $scope.entry = {};
-          $scope.quantity = 0;
-          $scope.price = 0;
-          $scope.goodId = 0;
-          $scope.currency = '';
-          $scope.delivery_date = '';
+          $scope.entry.quantity = 0;
+          $scope.entry.price = 0;
+          $scope.entry.goodId = 0;
+          $scope.entry.currency = '';
+          $scope.entry.delivery_date = '';
         });
         
       };

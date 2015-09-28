@@ -32,14 +32,14 @@
         </ui-select>
       </td>
       <td>
-        <input ng-disabled=checkStatus() ng-model="price" type="number" class="form-control" /><br>
+        <input ng-disabled=checkStatus() ng-model="entry.price" type="number" class="form-control" /><br>
         <label>Валюта</label>
-        <select class="form-control" ng-model="currency" ng-options="value.type as value.text for value in currencyTypes"></select><br>
+        <select class="form-control" ng-model="entry.currency" ng-options="value.type as value.text for value in currencyTypes"></select><br>
         <label>Количество</label>
-        <input ng-disabled=checkStatus() ng-model="quantity" type="number" class="form-control" /><br>
+        <input ng-disabled=checkStatus() ng-model="entry.quantity" type="number" class="form-control" /><br>
         <label>Предварительная Доставка</label>
         <div class='input-group date'>
-          <input ng-disabled=checkStatus() type='text' class="form-control" datetimepicker format="MMMM DD, YYYY" ng-model="delivery_date">
+          <input ng-disabled=checkStatus() type='text' class="form-control" datetimepicker format="MMMM DD, YYYY" ng-model="entry.delivery_date">
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>
