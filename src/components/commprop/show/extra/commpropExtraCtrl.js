@@ -58,6 +58,8 @@
           $scope.quantity = 0;
           $scope.price = 0;
           $scope.goodId = 0;
+          $scope.currency = '';
+          $scope.delivery_date = '';
         });
         
       };
