@@ -24,6 +24,7 @@
       $scope.quantity = 0;
       $scope.price = 0;
       $scope.currency = '';
+      $scope.delivery_date = '';
       $scope.goodId = 0;
       $scope.commercialProposalId = parseInt($stateParams.id, 10);
       commpropGoodsHTTP.setCommercialProposalId($scope.commercialProposalId);
@@ -41,6 +42,7 @@
       $scope.onAddCommpropGoods = function() {
         var entry = {
           price: $scope.price,
+          delivery_date: $scope.delivery_date,
           currency: $scope.currency,
           quantity: $scope.quantity,
           goodId: $scope.entry.good.id,
