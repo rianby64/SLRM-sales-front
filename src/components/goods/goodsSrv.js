@@ -8,10 +8,11 @@
       };
 
       this.read = function read(criteria) {
-        if (!criteria) {
-          return $http.get("/api/goods");
+        var criteria_ = criteria || { };
+        if (!criteria_.id) {
+          return $http.get("/api/goods", { params: criteria_ });
         }
-        if (criteria.id) {
+        if (criteria_.id) {
           return $http.get("/api/goods/" + criteria.id); 
         }
       };

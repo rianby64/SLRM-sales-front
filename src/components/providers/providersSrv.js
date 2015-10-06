@@ -24,6 +24,5 @@
       this.update = function update(client) {
         return $http.put("/api/providers/" + client.id, client);
       };
-    
   }]);
 })();

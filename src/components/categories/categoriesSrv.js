@@ -8,10 +8,11 @@
       };
 
       this.read = function read(criteria) {
-        if (!criteria) {
-          return $http.get("/api/categories");
+        var criteria_ = criteria || { };
+        if (!criteria_.id) {
+          return $http.get("/api/categories", { params: criteria_ });
         }
-        if (criteria.id) {
+        if (criteria_.id) {
           return $http.get("/api/categories/" + criteria.id); 
         }
       };
@@ -23,6 +24,5 @@
       this.update = function update(client) {
         return $http.put("/api/categories/" + client.id, client);
       };
-    
   }]);
 })();

@@ -15,7 +15,8 @@
         controller: 'entityTableController',
         template: function(elem, attrs) {
           return '<div ng-if="title"><hr>{{title}}</div> \
-<div class="row text-right"><a ui-sref="{{base}}.create" class="btn btn-primary">Добавить</a></div> \
+<div class="row form-group text-right"><a ui-sref="{{base}}.create" class="btn btn-primary">Добавить</a></div> \
+<search manager=searchManager></search> \
 <table class="table table-striped" id="entity-table"> \
   <thead> \
     <tr ' + attrs.templateTableHeader + '></tr>\

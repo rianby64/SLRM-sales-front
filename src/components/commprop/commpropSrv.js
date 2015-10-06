@@ -4,15 +4,15 @@
     .service('commpropHTTP', ['$http', 'authService', function($http, authService) {
     
       this.add = function add(client) {
-//        console.log(authService.user);
         return $http.post("/api/commprop", client);
       };
 
       this.read = function read(criteria) {
-        if (!criteria) {
-          return $http.get("/api/commprop");
+        var criteria_ = criteria || { };
+        if (!criteria_.id) {
+          return $http.get("/api/commprop", { params: criteria_ });
         }
-        if (criteria.id) {
+        if (criteria_.id) {
           return $http.get("/api/commprop/" + criteria.id); 
         }
       };

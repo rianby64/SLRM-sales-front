@@ -2,16 +2,18 @@
   "use strict";
   angular.module('RDash')
     .service('clientsHTTP', ['$http', 'authService', function($http, authService) {
+      
       this.add = function add(client) {
         return $http.post("/api/clients", client);
       };
 
       this.read = function read(criteria) {
-        if (!criteria) {
-          return $http.get("/api/clients");
+        var criteria_ = criteria || { };
+        if (!criteria_.id) {
+          return $http.get("/api/clients", { params: criteria_ });
         }
-        if (criteria.id) {
-          return $http.get("/api/clients/" + criteria.id); 
+        if (criteria_.id) {
+          return $http.get("/api/clients/" + criteria_.id); 
         }
       };
 
