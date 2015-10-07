@@ -11,11 +11,12 @@
       };
 
       this.read = function read(criteria) {
-        if (!criteria) {
-          return $http.get("/api/commprop/" + commercialProposalId + "/goods");
+        var criteria_ = criteria || {};
+        if (!criteria_.id) {
+          return $http.get("/api/commprop/" + commercialProposalId + "/goods", { params: criteria_ });
         }
-        if (criteria.id) {
-          return $http.get("/api/commprop/" + commercialProposalId + "/goods/" + criteria.id); 
+        if (criteria_.id) {
+          return $http.get("/api/commprop/" + commercialProposalId + "/goods/" + criteria_.id); 
         }
       };
 
