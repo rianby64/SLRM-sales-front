@@ -6,9 +6,6 @@
     .directive('entityDetail', function() {
       return {
         restrict: 'E',
-//        link: function(scope, element, attrs) {
-//          console.log(scope, 'in link fn');
-//        },
         scope: {
           cancel: '=',
           entity: '='

@@ -2,8 +2,8 @@
   <td>{{ entity.organization_name }} {{ entity.legal_name }}</td>
   <!-- <standar behavior -->
    <td class="entity-row-action">
-    <a ui-sref="{{base}}.detail({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-info-sign"></a>
-    <a ui-sref="{{base}}.edit({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-pencil"></a>
+<!--    <a ui-sref="{{base}}.detail({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-info-sign"></a>-->
+    <a ui-sref="{{base}}.edit({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-info-sign"></a>
     <entity-modal entity=entity submit=onRemove template-detail="providers-show"></entity-modal>
   </td>
   <!-- standar behavior> -->
