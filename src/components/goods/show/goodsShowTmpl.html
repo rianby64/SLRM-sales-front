@@ -1,9 +1,6 @@
-
-{{ entity.article }}<br>
-{{ entity.name }}<br>
-{{ entity.price }} {{ entity.currency }}<br>
-{{ entity.description }}<br>
-{{ entity.provider.organization_name }}<br>
-{{ entity.category.name }}<br>
-{{ entity.comments }}<br>
+<form ng-submit="onSubmit(entity)">
+  <goods-form entity=entity></goods-form>
+  <button type="submit" class="btn btn-primary">Обновить</button>
+  <a class="btn btn-default" ng-click="onCancel()">Отмена</a>
+</form>
 <div ui-view></div>

@@ -22,7 +22,7 @@
         })
         .state('main.goods.edit', {
           url: "/edit/:id",
-          controller: ['$scope', '$stateParams', /*'categoriesHTTP', 'providersHTTP',*/ 'goodsFormValidator', function($scope, $stateParams, /*categoriesHTTP, providersHTTP,*/ goodsFormValidator) {
+          controller: ['$scope', '$stateParams', 'goodsFormValidator', function($scope, $stateParams, goodsFormValidator) {
             $scope.validate = goodsFormValidator.validate;
             var criteria = { 
               id: $stateParams.id

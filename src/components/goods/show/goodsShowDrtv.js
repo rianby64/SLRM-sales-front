@@ -10,6 +10,7 @@
           entity: '=',
           onCancel: '='
         },
+        controller: 'goodsShowController',
         templateUrl: 'components/goods/show/goodsShowTmpl.html'        
       };
     });

@@ -10,13 +10,23 @@
       $scope.entity.provider = $scope.entity.provider || {};
 
       $scope.refreshCategories = function(category) {
-        categoriesHTTP.read().success(function(response) {
+        var criteria;
+        if (category) {
+          criteria = {
+            search: category
+          };
+        }
+        categoriesHTTP.read(criteria).success(function(response) {
           $scope.categories = response;
         });
       };
 
       $scope.refreshProviders = function(provider) {
-        providersHTTP.read({ type: "manufacturers" }).success(function(response) {
+        var criteria = { type: "manufacturers" };
+        if (provider) {
+          criteria.search = provider;
+        }
+        providersHTTP.read(criteria).success(function(response) {
           $scope.providers = response;
         });
       };
