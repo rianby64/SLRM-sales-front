@@ -8,13 +8,25 @@
         $scope.entity.broker = $scope.entity.broker || {};
         
         $scope.refreshClients = function(clients) {
-          clientsHTTP.read().success(function(response) {
+          var criteria;
+          if (clients) {
+            criteria = {
+              search: clients
+            };
+          }
+          clientsHTTP.read(criteria).success(function(response) {
             $scope.clients = response;
           });
         };
         
         $scope.refreshBrokers = function(brokers) {
-          brokersHTTP.read().success(function(response) {
+          var criteria;
+          if (brokers) {
+            criteria = {
+              search: brokers
+            };
+          }
+          brokersHTTP.read(criteria).success(function(response) {
             $scope.brokers = response;
           });
         };

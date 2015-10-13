@@ -6,8 +6,14 @@
       
       $scope.entry = {};
       $scope.currencyTypes = [{ type: 'RUB', text: 'RUB' },{ type: 'EUR', text: 'EUR' },{ type: 'USD', text: 'USD' }];
-      $scope.refreshGoods = function(provider) {
-        goodsHTTP.read().success(function(response) {
+      $scope.refreshGoods = function(goods) {
+        var criteria;
+        if (goods) {
+          criteria = {
+            search: goods
+          };
+        }
+        goodsHTTP.read(criteria).success(function(response) {
           $scope.goods = response;
         });
       };

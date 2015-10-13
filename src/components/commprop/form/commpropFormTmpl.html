@@ -14,14 +14,13 @@
   </ui-select>
 </div>
 
-<!--
 <div class="form-group">
-  <label for="entityForm.brokerId">Брокер</label>
+  <label for="entityForm.brokerId">Посредник</label>
   <ui-select ng-model="entity.broker"
              theme="bootstrap"
              ng-disabled="disabled"
              reset-search-input="false">
-    <ui-select-match placeholder="Брокер...">
+    <ui-select-match placeholder="Посредник...">
       {{$select.selected.legal_name}}
     </ui-select-match>
     <ui-select-choices repeat="broker in brokers track by $index"
@@ -31,7 +30,6 @@
     </ui-select-choices>
   </ui-select>
 </div>
--->
 
 <div class="form-group">
   <label for="entityForm.alert_date">Дата оповещания</label>

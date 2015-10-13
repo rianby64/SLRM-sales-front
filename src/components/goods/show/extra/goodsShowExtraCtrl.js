@@ -7,7 +7,13 @@
       $scope.entry = {};
       $scope.currencyTypes = [{ type: 'RUB', text: 'RUB' },{ type: 'EUR', text: 'EUR' },{ type: 'USD', text: 'USD' }];
       $scope.refreshProviders = function(provider) {
-        providersHTTP.read().success(function(response) {
+        var criteria;
+        if (provider) {
+          criteria = {
+            search: provider
+          };
+        }
+        providersHTTP.read(criteria).success(function(response) {
           $scope.providers = response;
         });
       };
