@@ -25,8 +25,9 @@
         })
         .success(function(commprop) {
           authService.check().then(function(user) {
+            console.log(user, "sender");
             $scope.manager.name = authService.user.name;
-            $scope.manager.telephone = authService.user.name;
+            $scope.manager.telephone = authService.user.telephone;
           });
           $scope.commprop = commprop;
           $scope.totalPrice = 0;
