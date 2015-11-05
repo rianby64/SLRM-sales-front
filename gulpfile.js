@@ -13,6 +13,7 @@ var paths = {
     scriptsShared: 'src/shared/**/*.js',
     scripts: 'src/js/**/*.*',
     styles: 'src/less/**/*.*',
+    css: 'src/css/**/*.*',
     images: 'src/img/**/*.*',
     templatesComponents: 'src/components/**/*.html',
     templatesShared: 'src/shared/**/*.html',
@@ -63,7 +64,12 @@ gulp.task('copy-bower_fonts', function() {
 /**
  * Handle custom files
  */
-gulp.task('build-custom', ['custom-images', 'custom-js', 'custom-less', 'custom-components-templates', 'custom-shared-templates', 'custom-templates']);
+gulp.task('build-custom', ['custom-css', 'custom-images', 'custom-js', 'custom-less', 'custom-components-templates', 'custom-shared-templates', 'custom-templates']);
+
+gulp.task('custom-css', function() {
+    return gulp.src(paths.css)
+        .pipe(gulp.dest('dist/css'));
+});
 
 gulp.task('custom-images', function() {
     return gulp.src(paths.images)
@@ -105,6 +111,7 @@ gulp.task('custom-shared-templates', function() {
  * Watch custom files
  */
 gulp.task('watch', function() {
+    gulp.watch([paths.css], ['custom-css']);
     gulp.watch([paths.images], ['custom-images']);
     gulp.watch([paths.styles], ['custom-less']);
     gulp.watch([paths.scriptsComponents], ['custom-js']);
