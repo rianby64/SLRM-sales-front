@@ -15,18 +15,20 @@
 </div>
 
 <div class="form-group">
-  <label for="entityForm.brokerId">Посредник</label>
+  <label for="entityForm.brokerId">Дизайнер</label>
   <ui-select ng-model="entity.broker"
              theme="bootstrap"
              ng-disabled="disabled"
              reset-search-input="false">
-    <ui-select-match placeholder="Посредник...">
-      {{$select.selected.legal_name}}
+    <ui-select-match placeholder="Дизайнер...">
+      {{$select.selected.first_name}} {{$select.selected.last_name}}
+      {{$select.selected.organization_name}} {{$select.selected.legal_name}}
     </ui-select-match>
     <ui-select-choices repeat="broker in brokers track by $index"
              refresh="refreshBrokers($select.search)"
              refresh-delay="0">
-      <div ng-bind-html="broker.legal_name | highlight: $select.search"></div>
+      <div ng-if="broker.type === 'natural'" ng-bind-html="broker.first_name + ' ' + broker.last_name | highlight: $select.search"></div>
+      <div ng-if="broker.type === 'legal'" ng-bind-html="broker.organization_name + ' ' + broker.legal_name | highlight: $select.search"></div>
     </ui-select-choices>
   </ui-select>
 </div>
