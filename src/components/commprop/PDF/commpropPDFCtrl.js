@@ -29,7 +29,9 @@
             $scope.manager.telephone = authService.user.telephone;
           });
           $scope.commprop = commprop;
-          $scope.totalPrice = 0;
+          $scope.totalPriceRUB = 0;
+          $scope.totalPriceEUR = 0;
+          $scope.totalPriceUSD = 0;
           $scope.totalCount = 0;
           
           commpropGoodsHTTP.setCommercialProposalId(commprop.id);
@@ -38,7 +40,15 @@
           .success(function(goods) {
             $scope.goods = goods;
             $scope.goods.forEach(function(item) {
-              $scope.totalPrice += item.good.price * item.quantity;
+              if (item.currency === "RUB") {
+                $scope.totalPriceRUB += item.good.price * item.quantity;
+              }
+              if (item.currency === "USD") {
+                $scope.totalPriceUSD += item.good.price * item.quantity;
+              }
+              if (item.currency === "EUR") {
+                $scope.totalPriceEUR += item.good.price * item.quantity;
+              }
               $scope.totalCount += item.quantity;
               item.photos = [];
               
