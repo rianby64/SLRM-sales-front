@@ -10,7 +10,8 @@
         var criteria;
         if (provider) {
           criteria = {
-            search: provider
+            search: provider,
+            type:'providers'
           };
         }
         providersHTTP.read(criteria).success(function(response) {
@@ -87,6 +88,7 @@
         
         goodsProvidersHTTP.add(entry).success(function(response) {
           response.provider = {
+            organization_name: $scope.entry.provider.organization_name,
             legal_name: $scope.entry.provider.legal_name
           };
           $scope.entriesGoodsProviders.push(response);

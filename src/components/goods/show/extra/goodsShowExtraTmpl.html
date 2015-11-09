@@ -10,7 +10,7 @@
   </thead>
   <tbody>
     <tr ng-repeat="entry in entriesGoodsProviders">
-      <td>{{entry.provider.legal_name}}</td>
+      <td>{{entry.provider.legal_name}} {{entry.provider.organization_name}}</td>
       <td>{{entry.price}} {{entry.currency}}</td>
       <td><button ng-click="onRemoveGoodsProviders(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
     </tr>
