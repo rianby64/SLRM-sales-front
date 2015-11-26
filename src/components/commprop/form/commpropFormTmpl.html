@@ -6,7 +6,7 @@
              ng-disabled="disabled"
              reset-search-input="false">
     <ui-select-match placeholder="Клиент...">{{$select.selected.first_name}}</ui-select-match>
-    <ui-select-choices repeat="client in clients track by $index"
+    <ui-select-choices repeat="client in clients"
              refresh="refreshClients($select.search)"
              refresh-delay="0">
       <div ng-bind-html="client.first_name | highlight: $select.search"></div>
@@ -24,7 +24,7 @@
       {{$select.selected.first_name}} {{$select.selected.last_name}}
       {{$select.selected.organization_name}} {{$select.selected.legal_name}}
     </ui-select-match>
-    <ui-select-choices repeat="broker in brokers track by $index"
+    <ui-select-choices repeat="broker in brokers"
              refresh="refreshBrokers($select.search)"
              refresh-delay="0">
       <div ng-if="broker.type === 'natural'" ng-bind-html="broker.first_name + ' ' + broker.last_name | highlight: $select.search"></div>

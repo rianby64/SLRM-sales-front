@@ -29,7 +29,7 @@
              ng-disabled="disabled"
              reset-search-input="false">
     <ui-select-match placeholder="Категория...">{{$select.selected.name}}</ui-select-match>
-    <ui-select-choices repeat="category in categories track by $index"
+    <ui-select-choices repeat="category in categories"
              refresh="refreshCategories($select.search)"
              refresh-delay="0">
       <div ng-bind-html="category.name | highlight: $select.search"></div>
@@ -44,7 +44,7 @@
              ng-disabled="disabled"
              reset-search-input="false">
     <ui-select-match placeholder="Производитель...">{{$select.selected.organization_name}}</ui-select-match>
-    <ui-select-choices repeat="provider in providers track by $index"
+    <ui-select-choices repeat="provider in providers"
              refresh="refreshProviders($select.search)"
              refresh-delay="0">
       <div ng-bind-html="provider.organization_name | highlight: $select.search"></div>
