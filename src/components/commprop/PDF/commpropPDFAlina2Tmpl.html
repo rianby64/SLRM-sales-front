@@ -27,9 +27,12 @@
         <section id="memo">
           <div class="company-info">
 
-            <span>г. Казань, ул. Декабристов, д. 66</span>
+            <span>г. Казань, ул. Достоевского, д. 66</span>
             <br>
-            <span>+7 (843) 238-46-51</span>
+            <span>+7 (843) 238-46-51</span><br>
+
+  <span>Salon PREMI</span>
+
           </div>
 
           <div class="logo">
@@ -39,26 +42,24 @@
 
         <section id="invoice-title-number">
 
-          <div class="title-top">
-            <span>{{commprop.createdAt | date: "yyyy.MM.dd"}}</span> <span id="number">#{{commprop.id}}</span>
+        
+
+          <div id="title">Коммерческое предложение <span id="number">#{{commprop.id}}</span> </div>
+     <div class="title-top"> 
+            <span>Дата: {{commprop.createdAt | date: "yyyy.MM.dd"}}</span>
+          </div> 
+<div class="client-name">
+            <span>Клиент: {{commprop.client.first_name}} {{commprop.client.middle_name}} {{commprop.client.last_name}}</span>
           </div>
-
-          <div id="title">Заказ</div>
-
-        </section>
+                </section>
 
         <section id="client-info">
-
-          <div class="client-name">
-            <span>{{commprop.client.first_name}} {{commprop.client.middle_name}} {{commprop.client.last_name}}</span>
+       <br>    <br>      <div>
+            <span>Менеджер: {{manager.name}}</span>
           </div>
 
           <div>
-            <span>отправил {{manager.name}}</span>
-          </div>
-
-          <div>
-            <span>{{manager.telephone}}</span>
+            <span>Телефон: {{manager.telephone}}</span>
           </div>
         </section>
 
@@ -83,9 +84,9 @@
                 <td>{{$index + 1}}</td> <!-- Don't remove this column as it's needed for the row commands -->
                 <td>{{good.good.name}}</td>
                 <td>{{good.good.provider.organization_name}}</td>
-                <td>{{good.price | number:2}} {{good.currency}}</td>
+                <td>{{good.price | number:0}} {{good.currency}}</td>
                 <td>{{good.quantity}} шт</td>
-                <td>{{good.quantity*good.price | number:2}} {{good.currency}}</td>
+                <td>{{good.quantity*good.price | number:0}} {{good.currency}}</td>
 
               </tr>
               <tr data-iterate="item" class="picture">
@@ -102,13 +103,13 @@
 
             <tr ng-if="totalPriceRUB" class="amount-total">
               <!-- {amount_total_label} -->
-              <td>{{totalPriceRUB | number:2}} RUB</td>
+              <td>Итого: {{totalPriceRUB | number:0}} руб.</td>
             </tr>
             <tr ng-if="totalPriceUSD" class="amount-total">
-              <td>{{totalPriceUSD | number:2}} USD</td>
+              <td>Итого: {{totalPriceUSD | number:0}} $</td>
             </tr>
             <tr ng-if="totalPriceEUR" class="amount-total">
-              <td>{{totalPriceEUR | number:2}} EUR</td>
+              <td>Итого: {{totalPriceEUR | number:0}} €</td>
             </tr>
 
           </table>

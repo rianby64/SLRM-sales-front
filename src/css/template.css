@@ -172,7 +172,7 @@ box-shadow: -2px 0px 19px 0px rgba(122,122,122,1);
   float: left;
 }
 #invoice-title-number .title-top {
-  font-size: 15px;
+
   margin-bottom: 5px;
 }
 #invoice-title-number .title-top span {
@@ -184,9 +184,7 @@ box-shadow: -2px 0px 19px 0px rgba(122,122,122,1);
   float: right;
   color: #858585;
 }
-#number {
-	font-size: 30px;
-	margin-left: 10px;
+#number {	margin-left: 10px;
 }
 #invoice-title-number .title-top:after {
   content: '';
@@ -197,9 +195,9 @@ box-shadow: -2px 0px 19px 0px rgba(122,122,122,1);
   display: inline-block;
   /*background: #415472;*/
   color: black;
-  font-size: 50px;
+  text-align: center;
+  font-size: 30px;
   padding: 7px 0;
-  font-family: Times, Sans;
   line-height: 1em;
 }
 
@@ -211,8 +209,7 @@ box-shadow: -2px 0px 19px 0px rgba(122,122,122,1);
 }
 #client-info .client-name {
   font-weight: bold;
-  font-size: 15px;
-  text-transform: uppercase;
+  
   margin: 7px 0;
 }
 #client-info > div {
@@ -328,8 +325,6 @@ table th, table td {
 #sums table tr.amount-total td {
   /*background: #415472;*/
   color: black;
-  font-family: Times, Sans;
-  font-size: 35px;
   line-height: 1em;
   padding: 7px !important;
 }
