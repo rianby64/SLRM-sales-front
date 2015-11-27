@@ -21,6 +21,7 @@
       $scope.progressPercentage = 0;
       $scope.uploadingFile = false;
 
+      $scope.comments = '';
       $scope.currency = 'RUB';
       $scope.price = 0;
       $scope.providerId = 0;
@@ -80,6 +81,7 @@
 
       $scope.onAddGoodsProviders = function() {
         var entry = {
+          comments: $scope.comments,
           price: $scope.price,
           currency: $scope.currency,
           providerId: $scope.entry.provider.id,
@@ -93,6 +95,8 @@
           };
           $scope.entriesGoodsProviders.push(response);
           $scope.entry = {};
+          $scope.comments = '';
+          $scope.currency = 'RUB';
           $scope.price = 0;
           $scope.providerId = 0;
         });

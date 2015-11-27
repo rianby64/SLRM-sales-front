@@ -10,12 +10,12 @@
   </thead>
   <tbody>
     <tr ng-repeat="entry in entriesGoodsProviders">
-      <td>{{entry.provider.legal_name}} {{entry.provider.organization_name}}</td>
+      <td>{{entry.provider.legal_name}} {{entry.provider.organization_name}} <br> {{entry.comments}}</td>
       <td>{{entry.price}} {{entry.currency}}</td>
       <td><button ng-click="onRemoveGoodsProviders(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
     </tr>
     <tr>
-      <td>
+      <td colspan="2">
         <ui-select ng-model="entry.provider"
              theme="bootstrap"
              ng-disabled="disabled"
@@ -27,14 +27,14 @@
             <div ng-bind-html="provider.organization_name | highlight: $select.search"></div>
           </ui-select-choices>
         </ui-select>
+        <label>Цена Закупочная</label>
+        <input ng-disabled="!entry.provider" type="number" ng-model="price" class="form-control" placeholder="Цена Закупочная" />
+        <label>Валюта</label>
+        <select ng-disabled="!entry.provider" class="form-control" ng-model="currency" ng-options="value.type as value.text for value in currencyTypes" id="entityForm.currency"></select>
+        <label>Комментарий</label>
+        <input ng-disabled="!entry.provider" ng-model="comments" class="form-control" placeholder="Комментарий" />
       </td>
-      <td>
-        <input ng-model="price" class="form-control" placeholder="Поставщик..." />
-        <label for="entityForm.currency">Цена Закупочная</label>
-        <select class="form-control" ng-model="currency" ng-options="value.type as value.text for value in currencyTypes" id="entityForm.currency"></select>
-        <label for="entityForm.currency">Валюта</label>
-      </td>
-      <td><button ng-click="onAddGoodsProviders()" class="btn btn-default glyphicon glyphicon-plus"></button></td>
+      <td><button ng-disabled="!entry.provider" ng-click="onAddGoodsProviders()" class="btn btn-default glyphicon glyphicon-plus"></button></td>
     </tr>
   </tbody>
 </table>
