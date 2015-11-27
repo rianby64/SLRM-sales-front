@@ -20,8 +20,8 @@
              theme="bootstrap"
              ng-disabled="disabled"
              reset-search-input="false">
-          <ui-select-match placeholder="Поставщики...">{{$select.selected.organization_name}}</ui-select-match>
-          <ui-select-choices repeat="provider in providers track by $index"
+          <ui-select-match placeholder="Поставщик...">{{$select.selected.organization_name}}</ui-select-match>
+          <ui-select-choices repeat="provider in providers"
                    refresh="refreshProviders($select.search)"
                    refresh-delay="0">
             <div ng-bind-html="provider.organization_name | highlight: $select.search"></div>
@@ -29,9 +29,10 @@
         </ui-select>
       </td>
       <td>
-        <input ng-model="price" type="number" class="form-control" /><br>
-        <label for="entityForm.currency">Валюта</label>
+        <input ng-model="price" class="form-control" placeholder="Поставщик..." />
+        <label for="entityForm.currency">Цена Закупочная</label>
         <select class="form-control" ng-model="currency" ng-options="value.type as value.text for value in currencyTypes" id="entityForm.currency"></select>
+        <label for="entityForm.currency">Валюта</label>
       </td>
       <td><button ng-click="onAddGoodsProviders()" class="btn btn-default glyphicon glyphicon-plus"></button></td>
     </tr>

@@ -1,7 +1,7 @@
 /*! Invoice Templates @author: Invoicebus @email: info@invoicebus.com @web: https://invoicebus.com @version: 1.0.0 @updated: 2015-03-27 14:03:24 @license: Invoicebus */
 /* Reset styles */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700&subset=cyrillic,cyrillic-ext,latin,greek-ext,greek,latin-ext,vietnamese");
-@import url("https://fonts.googleapis.com/css?family=Sanchez&subset=latin,latin-ext");
+/*@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700&subset=cyrillic,cyrillic-ext,latin,greek-ext,greek,latin-ext,vietnamese");
+@import url("https://fonts.googleapis.com/css?family=Sanchez&subset=latin,latin-ext");*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -35,6 +35,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 
 caption, th, td {
   text-align: left;
@@ -132,7 +133,7 @@ box-shadow: -2px 0px 19px 0px rgba(122,122,122,1);
 }
 
 .right-invoice {
-  padding: 40px 30px 40px 130px;
+  padding: 40px 30px 40px 30px;
   display: inline-block;
 }
 
@@ -166,7 +167,7 @@ box-shadow: -2px 0px 19px 0px rgba(122,122,122,1);
 }
 
 #invoice-title-number {
-  margin: 50px 0 20px 0;
+  margin: 10px 0 20px 0;
   display: inline-block;
   float: left;
 }
@@ -183,6 +184,10 @@ box-shadow: -2px 0px 19px 0px rgba(122,122,122,1);
   float: right;
   color: #858585;
 }
+#number {
+	font-size: 30px;
+	margin-left: 10px;
+}
 #invoice-title-number .title-top:after {
   content: '';
   display: block;
@@ -190,18 +195,18 @@ box-shadow: -2px 0px 19px 0px rgba(122,122,122,1);
 }
 #invoice-title-number #title {
   display: inline-block;
-  background: #415472;
-  color: white;
+  /*background: #415472;*/
+  color: black;
   font-size: 50px;
-  padding: 7px 30px;
-  font-family: Sanchez, Serif;
+  padding: 7px 0;
+  font-family: Times, Sans;
   line-height: 1em;
 }
 
 #client-info {
   float: right;
   text-align: right;
-  margin-top: 50px;
+  margin-top: 20px;
   min-width: 220px;
 }
 #client-info .client-name {
@@ -280,13 +285,14 @@ table th, table td {
   width: 100%;
 }
 #items table th {
-  font-family: Sanchez, Serif;
+  font-family: Times, Sans;
   font-size: 12px;
   text-transform: uppercase;
   padding: 5px 3px;
   text-align: right;
-  background: #b0b4b3;
-  color: white;
+ /* background: #b0b4b3;*/
+  color: black;
+  border-bottom: 1px solid #b0b4b3;
 }
 #items table th:nth-child(2) {
   width: 30%;
@@ -320,9 +326,9 @@ table th, table td {
   padding-right: 25px;
 }
 #sums table tr.amount-total td {
-  background: #415472;
-  color: white;
-  font-family: Sanchez, Serif;
+  /*background: #415472;*/
+  color: black;
+  font-family: Times, Sans;
   font-size: 35px;
   line-height: 1em;
   padding: 7px !important;
@@ -370,10 +376,18 @@ table th, table td {
 .picture td{
 border-bottom: 1px solid #b0b4b3!important;
 }
+
 /**
  * If the printed invoice is not looking as expected you may tune up
  * the print styles (you can use !important to override styles)
  */
 @media print {
-  /* Here goes your print styles */
+#container {
+ margin: 0px auto;}
+ /*.table-devide{
+ display: block;
+ }*/
+ table { page-break-inside:auto }
+    div   { page-break-inside:avoid; }
+
 }

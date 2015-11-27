@@ -6,18 +6,18 @@
     <tr>
       <th>Название</th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="entry in entriesCommpropGoods">
       <td>
         {{entry.good.name}}
-      </td>
-      <td>
-        {{entry.quantity}} шт, {{entry.price}} {{entry.currency}}
         <br>
-        {{entry.price*entry.quantity}} {{entry.currency}} {{entry.delivery_date | date: "yyyy MMM dd"}}
+        {{entry.quantity}} шт, {{entry.price}} {{entry.currency}} = {{entry.price*entry.quantity}} {{entry.currency}}
+        <br>
+        Доставка клиенту {{entry.delivery_date | date: "yyyy MMM dd"}}
+        <br>
+        Срок поставки {{entry.arrival_date | date: "yyyy MMM dd"}}
       </td>
       <td><button ng-disabled=checkStatus() ng-click="onRemoveCommpropGoods(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
     </tr>
@@ -30,30 +30,28 @@
              reset-search-input="false"
              on-select="onSelectGood($item, $model)">
           <ui-select-match placeholder="Товар...">{{$select.selected.name}}</ui-select-match>
-          <ui-select-choices repeat="good in goods track by $index"
+          <ui-select-choices repeat="good in goods"
                    refresh="refreshGoods($select.search)"
                    refresh-delay="0">
             <div ng-bind-html="good.name | highlight: $select.search"></div>
           </ui-select-choices>
         </ui-select>
-      </td>
-      <td>
-        <label>Цена</label>
+        <label>Цена Продажи</label>
         <input ng-disabled=checkStatus() ng-model="entry.price" type="number" class="form-control" /><br>
         <label>Валюта</label>
         <select ng-disabled=checkStatus() class="form-control" ng-model="entry.currency" ng-options="value.type as value.text for value in currencyTypes"></select><br>
         <label>Количество</label>
         <input ng-disabled=checkStatus() ng-model="entry.quantity" type="number" class="form-control" /><br>
-        <label>Предварительная Доставка</label>
+        <label>Доставка клиенту</label>
         <div class='input-group date'>
           <input ng-disabled=checkStatus() type='text' class="form-control" datetimepicker format="MMMM DD, YYYY" ng-model="entry.delivery_date">
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>
         </div>
-        <label>Предварительная Доставка</label>
+        <label>Срок поставки</label>
         <div class='input-group date'>
-          <input ng-disabled=checkStatus() type='text' class="form-control" datetimepicker format="MMMM DD, YYYY" ng-model="entry.delivery_date">
+          <input ng-disabled=checkStatus() type='text' class="form-control" datetimepicker format="MMMM DD, YYYY" ng-model="entry.arrival_date">
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>
@@ -65,6 +63,6 @@
     </tr>
   </tbody>
 </table>
-Итого {{totalPriceRUB}} RUB<br>
-Итого {{totalPriceUSD}} USD<br>
-Итого {{totalPriceEUR}} EUR<br>
+<span ng-if="totalPriceRUB">Итого {{totalPriceRUB}} RUB<br></span>
+<span ng-if="totalPriceUSD">Итого {{totalPriceUSD}} USD<br></span>
+<span ng-if="totalPriceEUR">Итого {{totalPriceEUR}} EUR<br></span>
