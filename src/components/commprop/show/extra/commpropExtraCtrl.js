@@ -31,7 +31,6 @@
       $scope.totalPriceRUB = 0;
       $scope.totalPriceUSD = 0;
       $scope.totalPriceEUR = 0;
-
       $scope.totalQuantity = 0;
 
       $scope.entry.quantity = 0;
@@ -44,20 +43,7 @@
 
       commpropGoodsHTTP.read().success(function(response) {
         $scope.entriesCommpropGoods = response;
-        for (var i = 0; i < $scope.entriesCommpropGoods.length; i++) {
-          $scope.totalQuantity += $scope.entriesCommpropGoods[i].quantity;
-
-          if ($scope.entriesCommpropGoods[i].currency === "RUB") {
-            $scope.totalPriceRUB += $scope.entriesCommpropGoods[i].price * $scope.entriesCommpropGoods[i].quantity;
-          }
-          if ($scope.entriesCommpropGoods[i].currency === "USD") {
-            $scope.totalPriceUSD += $scope.entriesCommpropGoods[i].price * $scope.entriesCommpropGoods[i].quantity;
-          }
-          if ($scope.entriesCommpropGoods[i].currency === "EUR") {
-            $scope.totalPriceEUR += $scope.entriesCommpropGoods[i].price * $scope.entriesCommpropGoods[i].quantity;
-          }
-
-        }
+        $scope.updateTotals();
       });
 
       $scope.onAddCommpropGoods = function() {
@@ -69,6 +55,7 @@
           $scope.entry = {};
           $scope.entry.commercialProposalId = parseInt($stateParams.id, 10);
           commpropGoodsHTTP.setCommercialProposalId($scope.entry.commercialProposalId);
+          $scope.updateTotals();
         });
 
       };
@@ -84,7 +71,31 @@
           };
           if (found)
             $scope.entriesCommpropGoods.splice(i, 1);
+            $scope.updateTotals();
         });
+      };
+
+      $scope.updateTotals = function() {
+
+        $scope.totalPriceRUB = 0;
+        $scope.totalPriceUSD = 0;
+        $scope.totalPriceEUR = 0;
+        $scope.totalQuantity = 0;
+
+        for (var i = 0; i < $scope.entriesCommpropGoods.length; i++) {
+          $scope.totalQuantity += $scope.entriesCommpropGoods[i].quantity;
+
+          if ($scope.entriesCommpropGoods[i].currency === "RUB") {
+            $scope.totalPriceRUB += $scope.entriesCommpropGoods[i].price * $scope.entriesCommpropGoods[i].quantity;
+          }
+          if ($scope.entriesCommpropGoods[i].currency === "USD") {
+            $scope.totalPriceUSD += $scope.entriesCommpropGoods[i].price * $scope.entriesCommpropGoods[i].quantity;
+          }
+          if ($scope.entriesCommpropGoods[i].currency === "EUR") {
+            $scope.totalPriceEUR += $scope.entriesCommpropGoods[i].price * $scope.entriesCommpropGoods[i].quantity;
+          }
+
+        }
       };
 
     }]);
