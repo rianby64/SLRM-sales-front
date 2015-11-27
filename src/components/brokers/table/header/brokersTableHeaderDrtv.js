@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('brokersTableHeader', function() {
@@ -8,8 +8,8 @@
         replace: true,
         restrict: 'A',
         scope: { },
-        templateUrl: 'components/brokers/table/header/brokersTableHeaderTmpl.html'        
+        templateUrl: 'components/brokers/table/header/brokersTableHeaderTmpl.html'
       };
     });
-  
+
 })();

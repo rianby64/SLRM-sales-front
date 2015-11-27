@@ -5,11 +5,11 @@
              theme="bootstrap"
              ng-disabled="disabled"
              reset-search-input="false">
-    <ui-select-match placeholder="Клиент...">{{$select.selected.first_name}}</ui-select-match>
+    <ui-select-match placeholder="Клиент...">{{$select.selected.first_name}} {{$select.selected.middle_name}} {{$select.selected.last_name}}</ui-select-match>
     <ui-select-choices repeat="client in clients"
              refresh="refreshClients($select.search)"
              refresh-delay="0">
-      <div ng-bind-html="client.first_name | highlight: $select.search"></div>
+      <div ng-bind-html="client.first_name + ' ' + client.middle_name + ' ' + client.last_name | highlight: $select.search"></div>
     </ui-select-choices>
   </ui-select>
 </div>
@@ -27,14 +27,14 @@
     <ui-select-choices repeat="broker in brokers"
              refresh="refreshBrokers($select.search)"
              refresh-delay="0">
-      <div ng-if="broker.type === 'natural'" ng-bind-html="broker.first_name + ' ' + broker.last_name | highlight: $select.search"></div>
+      <div ng-if="broker.type === 'natural'" ng-bind-html="broker.first_name + ' ' + broker.middle_name + ' ' + broker.last_name | highlight: $select.search"></div>
       <div ng-if="broker.type === 'legal'" ng-bind-html="broker.organization_name + ' ' + broker.legal_name | highlight: $select.search"></div>
     </ui-select-choices>
   </ui-select>
 </div>
 
 <div class="form-group">
-  <label for="entityForm.alert_date">Дата оповещания</label>
+  <label for="entityForm.alert_date">Звонок клиенту</label>
   <div class='input-group date'>
     <input type='text' class="form-control" datetimepicker format="MMMM DD, YYYY" ng-model="entity.alert_date" />
     <span class="input-group-addon">
@@ -44,7 +44,7 @@
 </div>
 
 <div class="form-group">
-  <label for="entityForm.sent_date">Дата отправки</label>
+  <label for="entityForm.sent_date">Дата отправки КП</label>
   <div class='input-group date'>
     <input type='text' class="form-control" datetimepicker format="MMMM DD, YYYY" ng-model="entity.sent_date" />
     <span class="input-group-addon">

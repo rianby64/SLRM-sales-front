@@ -1,10 +1,15 @@
-Заказ № {{ entity.id }}, 
-<span ng-if="entity.status === '-'">Идут переговоры</span>
-<span ng-if="entity.status === 'ok'">Принято</span><br>
-КП от {{ entity.createdAt | date:'dd MMM yyyy h:mm' }}<br>
-Для {{ entity.client.first_name }} {{ entity.client.last_name }}
-
+<form ng-submit="onSubmit(entity)">
+  <commprop-form entity=entity></commprop-form>
+  <button type="submit" class="btn btn-primary">Обновить</button>
+  <a class="btn btn-default" ng-click="onCancel()">Отмена</a>
+</form>
 <div ui-view></div>
+<form>
+  <div class="form-group">
+    <button ng-disabled=checkStatus() ui-sref="commpropPDF({ id: entity.id })" class="form-control btn btn-default">Оформить PDF</button>
+  </div>
+</form>
+<!--
 <hr>
 <form>
   <div class="form-group">
@@ -58,4 +63,4 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->

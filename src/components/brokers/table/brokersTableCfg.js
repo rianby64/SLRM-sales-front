@@ -1,9 +1,9 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
-    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {    
+    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
       // Now set up the states
       $stateProvider
         .state('main.brokers.show', {
@@ -16,6 +16,6 @@
             template-table-header="brokers-table-header"> \
           </entity-table>'
         });
-      
+
     }]);
 })();

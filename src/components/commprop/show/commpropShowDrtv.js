@@ -1,18 +1,18 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('commpropShow', function() {
       return {
         restrict: 'A',
-        scope: { 
+        scope: {
           entity: '=',
           onCancel: '='
         },
         controller: 'commpropShowController',
-        templateUrl: 'components/commprop/show/commpropShowTmpl.html'        
+        templateUrl: 'components/commprop/show/commpropShowTmpl.html'
       };
     });
-  
+
 })();

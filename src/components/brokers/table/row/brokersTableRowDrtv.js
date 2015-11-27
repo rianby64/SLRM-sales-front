@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('brokersTableRow', function() {
@@ -12,8 +12,8 @@
           onRemove: '=',
           base: '='
         },
-        templateUrl: 'components/brokers/table/row/brokersTableRowTmpl.html'        
+        templateUrl: 'components/brokers/table/row/brokersTableRowTmpl.html'
       };
     });
-  
+
 })();

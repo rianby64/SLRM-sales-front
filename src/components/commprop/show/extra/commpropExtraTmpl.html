@@ -15,18 +15,14 @@
         <br>
         {{entry.quantity}} шт, {{entry.price}} {{entry.currency}} = {{entry.price*entry.quantity}} {{entry.currency}}
         <br>
-        Доставка клиенту {{entry.delivery_date | date: "yyyy MMM dd"}}
-        <br>
-        Срок поставки {{entry.arrival_date | date: "yyyy MMM dd"}}
+        Срок поставки {{entry.delivery_period}}
       </td>
-      <td><button ng-disabled=checkStatus() ng-click="onRemoveCommpropGoods(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
+      <td><button ng-click="onRemoveCommpropGoods(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
     </tr>
     <tr>
       <td>
         <ui-select ng-model="entry.good"
-             ng-disabled=checkStatus()
              theme="bootstrap"
-             ng-disabled="disabled"
              reset-search-input="false"
              on-select="onSelectGood($item, $model)">
           <ui-select-match placeholder="Товар...">{{$select.selected.name}}</ui-select-match>
@@ -37,28 +33,16 @@
           </ui-select-choices>
         </ui-select>
         <label>Цена Продажи</label>
-        <input ng-disabled=checkStatus() ng-model="entry.price" type="number" class="form-control" /><br>
+        <input ng-disabled="!entry.good" ng-model="entry.price" type="number" class="form-control" /><br>
         <label>Валюта</label>
-        <select ng-disabled=checkStatus() class="form-control" ng-model="entry.currency" ng-options="value.type as value.text for value in currencyTypes"></select><br>
+        <select ng-disabled="!entry.good" ng-model="entry.currency" class="form-control" ng-options="value.type as value.text for value in currencyTypes"></select><br>
         <label>Количество</label>
-        <input ng-disabled=checkStatus() ng-model="entry.quantity" type="number" class="form-control" /><br>
-        <label>Доставка клиенту</label>
-        <div class='input-group date'>
-          <input ng-disabled=checkStatus() type='text' class="form-control" datetimepicker format="MMMM DD, YYYY" ng-model="entry.delivery_date">
-          <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-          </span>
-        </div>
+        <input ng-disabled="!entry.good" ng-model="entry.quantity" type="number" class="form-control" /><br>
         <label>Срок поставки</label>
-        <div class='input-group date'>
-          <input ng-disabled=checkStatus() type='text' class="form-control" datetimepicker format="MMMM DD, YYYY" ng-model="entry.arrival_date">
-          <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-          </span>
-        </div>
+        <input ng-disabled="!entry.good" ng-model="entry.delivery_period" type='text' class="form-control">
       </td>
       <td>
-        <button ng-disabled=checkStatus() ng-click="onAddCommpropGoods()" class="btn btn-default glyphicon glyphicon-plus"></button>
+        <button ng-disabled="!entry.good" ng-click="onAddCommpropGoods()" class="btn btn-default glyphicon glyphicon-plus"></button>
       </td>
     </tr>
   </tbody>

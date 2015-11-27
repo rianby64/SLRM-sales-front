@@ -1,17 +1,17 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('brokersForm', function() {
       return {
         restrict: 'E',
-        scope: { 
+        scope: {
           entity: '='
         },
         controller: 'brokersFromController',
-        templateUrl: 'components/brokers/form/brokersFormTmpl.html'        
+        templateUrl: 'components/brokers/form/brokersFormTmpl.html'
       };
     });
-  
+
 })();

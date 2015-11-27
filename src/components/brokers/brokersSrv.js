@@ -2,7 +2,7 @@
   "use strict";
   angular.module('RDash')
     .service('brokersHTTP', ['$http', 'authService', function($http, authService) {
-      
+
       this.add = function add(client) {
         return $http.post("/api/brokers", client);
       };
@@ -13,7 +13,7 @@
           return $http.get("/api/brokers", { params: criteria_ });
         }
         if (criteria_.id) {
-          return $http.get("/api/brokers/" + criteria.id); 
+          return $http.get("/api/brokers/" + criteria.id);
         }
       };
 

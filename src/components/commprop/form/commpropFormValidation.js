@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .factory('commpropFormValidator', [
@@ -11,14 +11,14 @@
         manager = user;
       });
       function validate(commprop) {
-        
-        
+
+
         return $q(function(resolve, reject) {
           var reason = {
             valid: true
           };
-          
-          
+
+
           var form = angular.copy(commprop);
           form.author = manager.name;
 
@@ -34,9 +34,9 @@
           reject(reason);
         });
       };
-      
+
       formValidator.validate = validate;
       return formValidator;
     }]);
-  
+
 })();

@@ -4,8 +4,8 @@
     .module('RDash')
     .controller('commpropExtraController', ['$scope', '$stateParams', 'goodsHTTP', 'commpropGoodsHTTP', function($scope, $stateParams, goodsHTTP, commpropGoodsHTTP) {
 
+      $scope.currencyTypes = [{ type: 'RUB', text: 'руб' },{ type: 'EUR', text: '€' },{ type: 'USD', text: '$' }];
       $scope.entry = {};
-      $scope.currencyTypes = [{ type: 'RUB', text: 'RUB' },{ type: 'EUR', text: 'EUR' },{ type: 'USD', text: 'USD' }];
       $scope.refreshGoods = function(goods) {
         var criteria;
         if (goods) {
@@ -23,6 +23,7 @@
         $scope.entry.currency = item.currency;
         $scope.entry.price = item.price;
         $scope.entry.quantity = 1;
+        $scope.entry.delivery_period = '10 дней';
       };
 
       $scope.totalPriceRUB = 0;
@@ -34,8 +35,7 @@
       $scope.entry.quantity = 0;
       $scope.entry.price = 0;
       $scope.entry.currency = '';
-      $scope.entry.delivery_date = '';
-      $scope.entry.arrival_date = '';
+      $scope.entry.delivery_period = '10 дней';
       $scope.entry.goodId = 0;
       $scope.entry.commercialProposalId = parseInt($stateParams.id, 10);
       commpropGoodsHTTP.setCommercialProposalId($scope.entry.commercialProposalId);
@@ -66,12 +66,7 @@
             name: $scope.entry.good.name
           };
           $scope.entriesCommpropGoods.push(response);
-          $scope.entry.quantity = 0;
-          $scope.entry.price = 0;
-          $scope.entry.goodId = 0;
-          $scope.entry.currency = '';
-          $scope.entry.delivery_date = '';
-          $scope.entry.arrival_date = '';
+          $scope.entry = {};
         });
 
       };

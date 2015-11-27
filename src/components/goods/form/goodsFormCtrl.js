@@ -3,8 +3,8 @@
   angular
     .module('RDash')
     .controller('goodsFormController', ['$scope', 'categoriesHTTP', 'providersHTTP', function($scope, categoriesHTTP, providersHTTP) {
-      
-      $scope.currencyTypes = [{ type: 'RUB', text: 'RUB' },{ type: 'EUR', text: 'EUR' },{ type: 'USD', text: 'USD' }];
+
+      $scope.currencyTypes = [{ type: 'RUB', text: 'руб' },{ type: 'EUR', text: '€' },{ type: 'USD', text: '$' }];
       $scope.entity.currency = $scope.entity.currency || 'RUB';
       $scope.entity.category = $scope.entity.category || {};
       $scope.entity.provider = $scope.entity.provider || {};
@@ -30,6 +30,6 @@
           $scope.providers = response;
         });
       };
-      
+
     }]);
 })();

@@ -17,7 +17,7 @@
           text: 'Юр-лицо'
         }
       ];
-      
+
       $scope.$watch('entity.type', function(type) {
         if (type === 'natural') {
           $scope.naturalPerson = true;
