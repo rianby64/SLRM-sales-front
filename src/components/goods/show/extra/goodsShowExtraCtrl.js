@@ -3,9 +3,9 @@
   angular
     .module('RDash')
     .controller('goodsShowExtraController', ['$scope', '$stateParams', 'providersHTTP', 'goodsProvidersHTTP', 'goodsPhotosHTTP', 'Upload', function($scope, $stateParams, providersHTTP, goodsProvidersHTTP, goodsPhotosHTTP, Upload) {
-      
+
+      $scope.currencyTypes = [{ type: 'RUB', text: 'руб' },{ type: 'EUR', text: '€' },{ type: 'USD', text: '$' }];
       $scope.entry = {};
-      $scope.currencyTypes = [{ type: 'RUB', text: 'RUB' },{ type: 'EUR', text: 'EUR' },{ type: 'USD', text: 'USD' }];
       $scope.refreshProviders = function(provider) {
         var criteria;
         if (provider) {
@@ -20,31 +20,31 @@
       };
       $scope.progressPercentage = 0;
       $scope.uploadingFile = false;
-      
+
       $scope.currency = 'RUB';
       $scope.price = 0;
       $scope.providerId = 0;
       $scope.goodId = parseInt($stateParams.id, 10);
       goodsProvidersHTTP.setGoodId($scope.goodId);
       goodsPhotosHTTP.setGoodId($scope.goodId);
-      
+
       $scope.entriesGoodsProviders = [];
       $scope.entriesGoodsPhotos = [];
-      
+
       goodsProvidersHTTP.read().success(function(response) {
         $scope.entriesGoodsProviders = response;
       });
-      
+
       goodsPhotosHTTP.read().success(function(response) {
         $scope.entriesGoodsPhotos = response;
       });
-      
+
       $scope.$watch('photo', function(photo) {
         if (photo) {
           $scope.onAddGoodsPhotos(photo);
         }
       });
-      
+
       $scope.progressPercentage = 0;
       $scope.uploadingFile = false;
       $scope.onAddGoodsPhotos = function(file) {
@@ -61,8 +61,8 @@
           $scope.entriesGoodsPhotos.push(data);
         });
       };
-      
-      
+
+
       $scope.onRemoveGoodsPhotos = function(entry) {
         goodsPhotosHTTP.remove(entry).success(function(response) {
           var l = $scope.entriesGoodsPhotos.length, i, found = false;
@@ -76,8 +76,8 @@
             $scope.entriesGoodsPhotos.splice(i, 1);
         });
       };
-      
-      
+
+
       $scope.onAddGoodsProviders = function() {
         var entry = {
           price: $scope.price,
@@ -85,7 +85,7 @@
           providerId: $scope.entry.provider.id,
           goodId: $scope.goodId
         };
-        
+
         goodsProvidersHTTP.add(entry).success(function(response) {
           response.provider = {
             organization_name: $scope.entry.provider.organization_name,
@@ -96,9 +96,9 @@
           $scope.price = 0;
           $scope.providerId = 0;
         });
-        
+
       };
-      
+
       $scope.onRemoveGoodsProviders = function(entry) {
         goodsProvidersHTTP.remove(entry).success(function(response) {
           var l = $scope.entriesGoodsProviders.length, i, found = false;
@@ -112,6 +112,6 @@
             $scope.entriesGoodsProviders.splice(i, 1);
         });
       };
-      
+
     }]);
 })();
