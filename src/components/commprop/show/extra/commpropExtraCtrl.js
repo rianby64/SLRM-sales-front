@@ -24,6 +24,8 @@
         $scope.entry.price = item.price;
         $scope.entry.quantity = 1;
         $scope.entry.delivery_period = '10 дней';
+        $scope.entry.commercialProposalId = parseInt($stateParams.id, 10);
+        commpropGoodsHTTP.setCommercialProposalId($scope.entry.commercialProposalId);
       };
 
       $scope.totalPriceRUB = 0;
@@ -67,6 +69,8 @@
           };
           $scope.entriesCommpropGoods.push(response);
           $scope.entry = {};
+          $scope.entry.commercialProposalId = parseInt($stateParams.id, 10);
+          commpropGoodsHTTP.setCommercialProposalId($scope.entry.commercialProposalId);
         });
 
       };
