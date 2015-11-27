@@ -10,9 +10,33 @@
   </thead>
   <tbody>
     <tr ng-repeat="entry in entriesGoodsProviders">
-      <td>{{entry.provider.legal_name}} {{entry.provider.organization_name}} <br> {{entry.comments}}</td>
-      <td>{{entry.price}} {{entry.currency}}</td>
-      <td><button ng-click="onRemoveGoodsProviders(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
+      <td>
+        <div ng-if="!entry.redacting">{{entry.provider.legal_name}} {{entry.provider.organization_name}} <br> {{entry.comments}}</div>
+        <div ng-if="entry.redacting">
+          <label>Поставщики</label>
+          <input type="text" value="{{entry.provider.legal_name}} {{entry.provider.organization_name}}" class="form-control" ng-disabled="true">
+          <label>Комментарий</label>
+          <input ng-model="entry.comments" class="form-control" placeholder="Комментарий" />
+        </div>
+      </td>
+      <td>
+        <div ng-if="!entry.redacting">{{entry.price}} {{entry.currency}}</div>
+        <div ng-if="entry.redacting">
+          <label>Цена Закупочная</label>
+          <input type="number" ng-model="entry.price" class="form-control" placeholder="Цена Закупочная" />
+          <label>Валюта</label>
+          <select class="form-control" ng-model="entry.currency" ng-options="value.type as value.text for value in currencyTypes" id="entityForm.currency"></select>
+        </div>
+      </td>
+      <td>
+        <div ng-if="!entry.redacting">
+          <button ng-click="beginEditGoodsProviders(entry)" class="btn btn-default glyphicon glyphicon-pencil"></button>
+          <button ng-click="onRemoveGoodsProviders(entry)" class="btn btn-default glyphicon glyphicon-remove"></button>
+        </div>
+        <div ng-if="entry.redacting">
+          <button ng-click="endEditGoodsProviders(entry)" class="btn btn-default glyphicon glyphicon-ok"></button>
+        </div>
+      </td>
     </tr>
     <tr>
       <td colspan="2">

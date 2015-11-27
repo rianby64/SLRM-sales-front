@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('adminTableRow', function() {
@@ -12,8 +12,8 @@
           onRemove: '=',
           base: '='
         },
-        templateUrl: 'shared/user/admin/table/row/adminTableRowTmpl.html'        
+        templateUrl: 'shared/user/admin/table/row/adminTableRowTmpl.html'
       };
     });
-  
+
 })();

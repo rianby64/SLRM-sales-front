@@ -2,7 +2,7 @@
   "use strict";
   angular.module('RDash')
     .service('adminHTTP', ['$http', 'authService', function($http, authService) {
-      
+
       this.add = function add(user) {
         return $http.post("/api/users", user);
       };
@@ -12,7 +12,7 @@
           return $http.get("/api/users");
         }
         if (criteria.id) {
-          return $http.get("/api/users/" + criteria.id); 
+          return $http.get("/api/users/" + criteria.id);
         }
       };
 

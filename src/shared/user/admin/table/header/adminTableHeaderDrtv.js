@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('adminTableHeader', function() {
@@ -8,8 +8,8 @@
         replace: true,
         restrict: 'A',
         scope: { },
-        templateUrl: 'shared/user/admin/table/header/adminTableHeaderTmpl.html'        
+        templateUrl: 'shared/user/admin/table/header/adminTableHeaderTmpl.html'
       };
     });
-  
+
 })();

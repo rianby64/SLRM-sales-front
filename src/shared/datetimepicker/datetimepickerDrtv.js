@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('datetimepicker', function() {
@@ -43,9 +43,9 @@
               scope.setDatetime(null);
             }
           });
-          
+
         }
       };
     });
-  
+
 })();

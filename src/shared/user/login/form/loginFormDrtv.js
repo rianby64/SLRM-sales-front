@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('loginForm', function() {
@@ -12,8 +12,8 @@
           submitted: '='
         },
         controller: 'loginFormController',
-        templateUrl: 'shared/user/login/form/loginFormTmpl.html'        
+        templateUrl: 'shared/user/login/form/loginFormTmpl.html'
       };
     });
-  
+
 })();

@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('search', function() {
@@ -8,8 +8,8 @@
         restrict: 'E',
         scope: { manager: '=' },
         controller: 'searchController',
-        templateUrl: 'shared/search/searchTmpl.html'        
+        templateUrl: 'shared/search/searchTmpl.html'
       };
     });
-  
+
 })();

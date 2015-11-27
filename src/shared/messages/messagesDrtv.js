@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('messages', function() {
@@ -11,8 +11,8 @@
           error: '='
         },
         controller: 'messagesController',
-        templateUrl: 'shared/messages/messagesTmpl.html'        
+        templateUrl: 'shared/messages/messagesTmpl.html'
       };
     });
-  
+
 })();

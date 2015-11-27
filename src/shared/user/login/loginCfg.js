@@ -1,9 +1,9 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
-    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {    
+    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
       // Now set up the states
       $stateProvider
           .state('login', {
@@ -14,7 +14,7 @@
             url: "/success",
             template: "<login-success></login-success>"
           });
-      
+
     }]);
-  
+
 })();

@@ -1,10 +1,10 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .factory('profileFormValidator', ['$q', profileFormValidator]);
-  
+
   function profileFormValidator($q) {
     var formValidator = {};
 
@@ -25,5 +25,5 @@
     formValidator.validate = validate;
     return formValidator;
   }
-  
+
 })();

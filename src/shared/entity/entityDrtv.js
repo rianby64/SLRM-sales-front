@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('entity', function() {
@@ -10,8 +10,8 @@
           add: '=', read: '=', remove: '=', update: '=', base: '@', title: '@'
         },
         controller: 'entityController',
-        templateUrl: 'shared/entity/entityTmpl.html'        
+        templateUrl: 'shared/entity/entityTmpl.html'
       };
     });
-  
+
 })();

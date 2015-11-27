@@ -15,7 +15,7 @@
           return $http.get("/api/goods/" + goodId + "/photos");
         }
         if (criteria.id) {
-          return $http.get("/api/goods/" + goodId + "/photos/" + criteria.id); 
+          return $http.get("/api/goods/" + goodId + "/photos/" + criteria.id);
         }
       };
 
@@ -26,6 +26,6 @@
       this.update = function update(goodphoto) {
         return $http.put("/api/goods/" + goodId + "/photos/" + goodphoto.id, goodphoto);
       };
-    
+
   }]);
 })();

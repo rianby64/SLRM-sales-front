@@ -16,7 +16,7 @@
           return $http.get("/api/goods/" + goodId + "/providers", { params: criteria_ });
         }
         if (criteria_.id) {
-          return $http.get("/api/goods/" + goodId + "/providers/" + criteria_.id); 
+          return $http.get("/api/goods/" + goodId + "/providers/" + criteria_.id);
         }
       };
 
@@ -27,6 +27,6 @@
       this.update = function update(goodprovider) {
         return $http.put("/api/goods/" + goodId + "/providers/" + goodprovider.id, goodprovider);
       };
-    
+
   }]);
 })();

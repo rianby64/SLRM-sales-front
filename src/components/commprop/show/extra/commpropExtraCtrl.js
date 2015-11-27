@@ -43,11 +43,8 @@
 
       $scope.entriesGoods = [];
 
-      console.log('i chto proisxodit?');
       commpropGoodsHTTP.read().success(function(response) {
         $scope.entriesCommpropGoods = response;
-
-        console.log(response);
         $scope.updateTotals();
       });
 

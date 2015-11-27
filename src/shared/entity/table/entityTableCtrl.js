@@ -1,6 +1,6 @@
 ;(function () {
   "use strict";
-  
+
   angular
     .module('RDash')
     .controller('entityTableController', ['$scope', 'entityManager', function($scope, entityManager) {
@@ -8,5 +8,5 @@
       $scope.searchManager = entityManager;
     }
   ]);
-  
+
 })();

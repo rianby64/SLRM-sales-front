@@ -1,9 +1,9 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
-    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {    
+    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
       // Now set up the states
       $stateProvider
         .state('admin.create', {
@@ -25,7 +25,7 @@
           url: "/edit/:id",
           controller: ['$scope', '$stateParams', 'adminFormValidator', function($scope, $stateParams, adminFormValidator) {
             $scope.validate = adminFormValidator.validate;
-            var criteria = { 
+            var criteria = {
               id: $stateParams.id
             };
             $scope

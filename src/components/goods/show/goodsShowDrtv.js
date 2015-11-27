@@ -1,18 +1,18 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('goodsShow', function() {
       return {
         restrict: 'A',
-        scope: { 
+        scope: {
           entity: '=',
           onCancel: '='
         },
         controller: 'goodsShowController',
-        templateUrl: 'components/goods/show/goodsShowTmpl.html'        
+        templateUrl: 'components/goods/show/goodsShowTmpl.html'
       };
     });
-  
+
 })();

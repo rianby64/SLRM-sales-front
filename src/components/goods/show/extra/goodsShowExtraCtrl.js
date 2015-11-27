@@ -117,5 +117,13 @@
         });
       };
 
+      $scope.beginEditGoodsProviders = function(entry) {
+        entry.redacting = true;
+      }
+      $scope.endEditGoodsProviders = function(entry) {
+        entry.redacting = false;
+        goodsProvidersHTTP.update(entry);
+      }
+
     }]);
 })();

@@ -1,10 +1,10 @@
 ;(function() {
   "use strict";
-  
+
   angular
   .module('RDash')
   .service('entityManager', function() {
-    
+
     var manager = {
       notifyError: function() { console.error('entityManager>>notifyError empty'); },
       notifyAdd: function() { console.error('entityManager>>notifyAdd empty'); },
@@ -16,24 +16,24 @@
       remove: function() { console.error('entityManager>>remove empty'); },
       update: function() { console.error('entityManager>>update empty'); }
     };
-    
+
     var that = this;
-    
+
     this.entities = [];
     this.setupManager = function setupManager(new_manager) {
       if (new_manager.notifyError) { manager.notifyError = new_manager.notifyError; }
-      
+
       if (new_manager.notifyAdd) { manager.notifyAdd = new_manager.notifyAdd; }
       if (new_manager.notifyRead) { manager.notifyRead = new_manager.notifyRead; }
       if (new_manager.notifyRemove) { manager.notifyRemove = new_manager.notifyRemove; }
       if (new_manager.notifyUpdate) { manager.notifyUpdate = new_manager.notifyUpdate; }
-      
+
       if (new_manager.add) { manager.add = new_manager.add; }
       if (new_manager.read) { manager.read = new_manager.read; }
       if (new_manager.remove) { manager.remove = new_manager.remove; }
       if (new_manager.update) { manager.update = new_manager.update; }
     };
-    
+
     this.add = function add(entity) {
       return manager
       .add(entity)
@@ -51,7 +51,7 @@
       })
       .error(manager.notifyError);
     }
-    
+
     this.remove = function remove(entity) {
       return manager
       .remove(entity)
@@ -60,7 +60,7 @@
       })
       .error(manager.notifyError);
     }
-    
+
     this.load = function load(criteria) {
       return manager
       .read(criteria)
@@ -69,12 +69,12 @@
       })
       .error(manager.notifyError);
     };
-    
+
     this.init = function init() {
       if (that.entities.length === 0) {  // this is the only place were we use that.entities
         that.load();
       }
     }
-    
+
   });
 })();

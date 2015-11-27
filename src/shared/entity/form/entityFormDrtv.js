@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('entityForm', function() {
@@ -24,5 +24,5 @@
         }
       };
     });
-  
+
 })();

@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('profile', function() {
@@ -10,8 +10,8 @@
           entity: '='
         },
         controller: 'profileController',
-        templateUrl: 'shared/user/profile/profileTmpl.html'        
+        templateUrl: 'shared/user/profile/profileTmpl.html'
       };
     });
-  
+
 })();

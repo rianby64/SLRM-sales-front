@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('login', function() {
@@ -9,8 +9,8 @@
         scope: {
         },
         controller: 'loginController',
-        templateUrl: 'shared/user/login/loginTmpl.html'        
+        templateUrl: 'shared/user/login/loginTmpl.html'
       };
     });
-  
+
 })();

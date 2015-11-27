@@ -1,6 +1,6 @@
 ;(function () {
   "use strict";
-  
+
   angular
     .module('RDash')
     .controller('loginController', [
@@ -8,10 +8,10 @@
       'authService',
       loginController
     ]);
-  
+
   function loginController($scope, authService) {
     $scope.submitted = false;
-    
+
     $scope.validForm = function validForm(credentials) {
       var text = "submitting";
       $scope.message(text); // show that we're submitting
@@ -27,5 +27,5 @@
     }
 
   }
-  
+
 })();

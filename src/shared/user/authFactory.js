@@ -1,6 +1,6 @@
 ;(function() {
-  "use strict";  
-  
+  "use strict";
+
   angular
     .module('RDash')
     .factory('authService', ['$state', '$stateParams', '$q', '$http', function($state, $stateParams, $q, $http) {
@@ -11,7 +11,7 @@
         checked = false,
         notifyLogin = function() { console.error('define a notify login'); },
         notifyLogout = function() { console.error('define a notify logout'); };
-    
+
     function requestToken(credentials) {
       return $q(function(resolve, reject) {
         var next = $stateParams.next,
@@ -19,7 +19,7 @@
               valid: false,
               email: ['cannot authorizate']
             };
-        
+
         $http
           .post("/passwordless", credentials)
           .success(function(response) {
@@ -29,11 +29,11 @@
           .error(function(response) {
             reject(response);
           });
-        
-        
+
+
       });
     }
-    
+
     function logout() {
       $http
         .get('/logout')
@@ -45,7 +45,7 @@
           reject(response);
         });
     }
-      
+
     function check() {
       checked = false;
       if (!checked) {
@@ -61,13 +61,13 @@
         resolve(authService.user); // by cache
       });
     }
-    
+
     authService.requestToken = requestToken;
     authService.logout = logout;
     authService.check = check;
     authService.user = user;
-    
+
     return authService;
   }]);
-  
+
 })();

@@ -1,13 +1,13 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .factory('adminFormValidator', [
     '$q',
     function($q) {
       var formValidator = {};
-      
+
       function generateUUID(){
         var d = new Date().getTime();
         var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -17,13 +17,13 @@
         });
         return uuid;
       }
-      
+
       function validate(user) {
         return $q(function(resolve, reject) {
           var reason = {
             valid: true
           };
-          
+
           if (reason.valid) {
             var validUser = angular.copy(user);
             validUser.uuid = generateUUID();
@@ -32,9 +32,9 @@
           reject(reason);
         });
       };
-      
+
       formValidator.validate = validate;
       return formValidator;
     }]);
-  
+
 })();

@@ -2,7 +2,7 @@
   "use strict";
   angular.module('RDash')
     .service('commpropHTTP', ['$http', 'authService', function($http, authService) {
-    
+
       this.add = function add(client) {
         return $http.post("/api/commprop", client);
       };
@@ -13,7 +13,7 @@
           return $http.get("/api/commprop", { params: criteria_ });
         }
         if (criteria_.id) {
-          return $http.get("/api/commprop/" + criteria.id); 
+          return $http.get("/api/commprop/" + criteria.id);
         }
       };
 
@@ -24,6 +24,6 @@
       this.update = function update(client) {
         return $http.put("/api/commprop/" + client.id, client);
       };
-    
+
   }]);
 })();

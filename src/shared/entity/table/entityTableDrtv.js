@@ -1,6 +1,6 @@
 ;(function() {
   "use strict";
-  
+
   angular
     .module('RDash')
     .directive('entityTable', function() {
@@ -25,9 +25,9 @@
     <tr ' + attrs.templateTableRow + ' ng-repeat="entity in entities" id="entity-row-{{entity.id}}" entity=entity base="base" on-remove=onRemove> \
     </tr> \
   </tbody> \
-</table>'; 
+</table>';
         }
       };
     });
-  
+
 })();
