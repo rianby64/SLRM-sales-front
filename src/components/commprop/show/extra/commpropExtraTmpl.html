@@ -9,15 +9,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="entry in entriesCommpropGoods">
+    <tr ng-repeat="entryGood in entriesCommpropGoods">
       <td>
-        {{entry.good.name}}
+        {{entryGood.good.name}}
         <br>
-        {{entry.quantity}} шт, {{entry.price}} {{entry.currency}} = {{entry.price*entry.quantity}} {{entry.currency}}
+        {{entryGood.quantity}} шт, {{entryGood.price}} {{entryGood.currency}} = {{entryGood.price*entryGood.quantity}} {{entryGood.currency}}
         <br>
-        Срок поставки {{entry.delivery_period}}
+        Срок поставки {{entryGood.delivery_period}}
       </td>
-      <td><button ng-click="onRemoveCommpropGoods(entry)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
+      <td><button ng-click="onRemoveCommpropGoods(entryGood)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
     </tr>
     <tr>
       <td>

@@ -16,7 +16,7 @@
           return $http.get("/api/commprop/" + commercialProposalId + "/goods", { params: criteria_ });
         }
         if (criteria_.id) {
-          return $http.get("/api/commprop/" + commercialProposalId + "/goods/" + criteria_.id); 
+          return $http.get("/api/commprop/" + commercialProposalId + "/goods/" + criteria_.id);
         }
       };
 
@@ -27,6 +27,6 @@
       this.update = function update(commprop) {
         return $http.put("/api/commprop/" + commercialProposalId + "/goods/" + commprop.id, commprop);
       };
-    
+
   }]);
 })();
