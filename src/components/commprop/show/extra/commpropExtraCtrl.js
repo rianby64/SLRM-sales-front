@@ -67,6 +67,8 @@
           };
           $scope.entriesCommpropGoods.push(response);
           $scope.entry = {};
+          $scope.entry.commercialProposalId = parseInt($stateParams.id, 10);
+          commpropGoodsHTTP.setCommercialProposalId($scope.entry.commercialProposalId);
         });
 
       };
