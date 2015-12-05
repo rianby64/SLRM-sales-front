@@ -100,5 +100,17 @@
         }
       };
 
+      $scope.beginEditCommpropGoods = function(entry) {
+        console.log(entry);
+        entry.redacting = true;
+      }
+      $scope.endEditCommpropGoods = function(entry) {
+        entry.redacting = false;
+        commpropGoodsHTTP.setCommercialProposalId(entry.commercialProposalId);
+        commpropGoodsHTTP.update(entry).then(function() {
+          $scope.updateTotals();
+        });
+      }
+
     }]);
 })();

@@ -11,16 +11,39 @@
   <tbody>
     <tr ng-repeat="entryGood in entriesCommpropGoods">
       <td>
-        {{entryGood.good.name}}
-        <br>
-        {{entryGood.quantity}} шт, {{entryGood.price}} {{entryGood.currency}} = {{entryGood.price*entryGood.quantity}} {{entryGood.currency}}
-        <br>
-        Срок поставки {{entryGood.delivery_period}}
+        <div ng-if="!entryGood.redacting">
+          {{entryGood.good.name}}
+          <br>
+          {{entryGood.quantity}} шт, {{entryGood.price}} {{entryGood.currency}} = {{entryGood.price*entryGood.quantity}} {{entryGood.currency}}
+          <br>
+          Срок поставки {{entryGood.delivery_period}}
+        </div>
+        <div ng-if="entryGood.redacting">
+          <label>Товар</label>
+          <input type="text" value="{{entryGood.good.name}}" class="form-control" ng-disabled="true">
+          <label>Цена Продажи</label>
+          <input ng-model="entryGood.price" class="form-control" placeholder="Цена Продажи" />
+          <label>Валюта</label>
+          <select ng-model="entryGood.currency" class="form-control" ng-options="value.type as value.text for value in currencyTypes"></select>
+          <label>Количество</label>
+          <input ng-model="entryGood.quantity" class="form-control" placeholder="Количество" />
+          <label>Срок поставки</label>
+          <input ng-model="entryGood.delivery_period" class="form-control" placeholder="Срок поставки" />
+        </div>
       </td>
-      <td><button ng-click="onRemoveCommpropGoods(entryGood)" class="btn btn-default glyphicon glyphicon-remove"></button></td>
+      <td>
+        <div ng-if="!entryGood.redacting">
+          <button ng-click="beginEditCommpropGoods(entryGood)" class="btn btn-default glyphicon glyphicon-pencil"></button>
+          <button ng-click="onRemoveCommpropGoods(entryGood)" class="btn btn-default glyphicon glyphicon-remove"></button>
+        </div>
+        <div ng-if="entryGood.redacting">
+          <button ng-click="endEditCommpropGoods(entryGood)" class="btn btn-default glyphicon glyphicon-ok"></button>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>
+        <label>Добавить товар</label>
         <ui-select ng-model="entry.good"
              theme="bootstrap"
              reset-search-input="false"
@@ -42,6 +65,7 @@
         <input ng-disabled="!entry.good" ng-model="entry.delivery_period" type='text' class="form-control">
       </td>
       <td>
+        <label>Добавить</label><br>
         <button ng-disabled="!entry.good" ng-click="onAddCommpropGoods()" class="btn btn-default glyphicon glyphicon-plus"></button>
       </td>
     </tr>

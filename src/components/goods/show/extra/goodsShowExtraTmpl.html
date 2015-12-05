@@ -40,6 +40,7 @@
     </tr>
     <tr>
       <td colspan="2">
+        <label>Добавить поставщика</label>
         <ui-select ng-model="entry.provider"
              theme="bootstrap"
              ng-disabled="disabled"
@@ -58,7 +59,10 @@
         <label>Комментарий</label>
         <input ng-disabled="!entry.provider" ng-model="comments" class="form-control" placeholder="Комментарий" />
       </td>
-      <td><button ng-disabled="!entry.provider" ng-click="onAddGoodsProviders()" class="btn btn-default glyphicon glyphicon-plus"></button></td>
+      <td>
+        <label>Добавить</label><br>
+        <button ng-disabled="!entry.provider" ng-click="onAddGoodsProviders()" class="btn btn-default glyphicon glyphicon-plus"></button>
+      </td>
     </tr>
   </tbody>
 </table>
