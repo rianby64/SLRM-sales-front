@@ -7,10 +7,8 @@
       return {
         restrict: 'A',
         scope: {
-          entity: '=',
-          onCancel: '='
+          entity: '='
         },
-        controller: 'commpropShowController',
         templateUrl: 'components/commprop/show/commpropShowTmpl.html'
       };
     });

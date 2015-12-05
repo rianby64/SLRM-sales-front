@@ -2,7 +2,7 @@
   <td>№{{ entity.id }}, от {{ entity.createdAt | date:'dd MMM yyyy' }}, {{ entity.client.first_name }} {{ entity.client.last_name }}, {{ entity.comments }}, {{ entity.status }}</td>
   <!-- <standar behavior -->
    <td class="entity-row-action">
-    <a ui-sref="{{base}}.detail.extra({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-info-sign"></a>
+    <a ui-sref="{{base}}.edit.detail.extra({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-info-sign"></a>
 <!--    <a ui-sref="{{base}}.edit({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-pencil"></a>-->
     <entity-modal entity=entity submit=onRemove template-detail="commprop-show"></entity-modal>
   </td>

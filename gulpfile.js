@@ -31,7 +31,7 @@ gulp.task('usemin', function() {
     return gulp.src(paths.index)
         .pipe(usemin({
             js: [
-              minifyJs(),
+              //minifyJs(),
               'concat'
             ],
             css: [minifyCss({keepSpecialComments: 0}), 'concat'],

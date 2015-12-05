@@ -44,7 +44,7 @@
             submit=onUpdate \
             entity=entity \
             template-form="goods-form">\
-          </entity-form>'
+          </entity-form><div ui-view></div>'
         });
     }]);
 })();

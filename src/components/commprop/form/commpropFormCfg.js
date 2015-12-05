@@ -54,7 +54,7 @@
             entity=entity \
             template-form="commprop-form" \
             action="update"> \
-          </entity-form>'
+          </entity-form><div ui-view></div>'
         });
     }]);
 })();

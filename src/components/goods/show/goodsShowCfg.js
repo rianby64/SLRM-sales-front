@@ -7,7 +7,7 @@
 
       // Now set up the states
       $stateProvider
-        .state('main.goods.detail', {
+        .state('main.goods.edit.detail', {
           abstract: true,
           url: "/detail/:id",
           controller: ['$scope', '$stateParams', function($scope, $stateParams) {

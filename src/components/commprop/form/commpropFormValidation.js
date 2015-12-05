@@ -11,13 +11,10 @@
         manager = user;
       });
       function validate(commprop) {
-
-
         return $q(function(resolve, reject) {
           var reason = {
             valid: true
           };
-
 
           var form = angular.copy(commprop);
           form.author = manager.name;

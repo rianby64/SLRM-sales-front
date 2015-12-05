@@ -7,10 +7,8 @@
       return {
         restrict: 'A',
         scope: {
-          entity: '=',
-          onCancel: '='
+          entity: '='
         },
-        controller: 'goodsShowController',
         templateUrl: 'components/goods/show/goodsShowTmpl.html'
       };
     });

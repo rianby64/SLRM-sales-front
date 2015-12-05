@@ -7,7 +7,7 @@
 
       // Now set up the states
       $stateProvider
-        .state('main.goods.detail.extra', {
+        .state('main.goods.edit.detail.extra', {
           url: "/extra",
           controller: 'goodsShowExtraController',
           templateUrl: 'components/goods/show/extra/goodsShowExtraTmpl.html'
