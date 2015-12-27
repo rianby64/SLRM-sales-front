@@ -9,7 +9,9 @@
         .state('main.commprop.show', {
           url: "/show",
           template: '\
+          <commprop-filter search-manager=manager></commprop-filter> \
           <entity-table \
+            search-manager=manager \
             entities=entities \
             base="main.commprop" \
             template-table-row="commprop-table-row" \
