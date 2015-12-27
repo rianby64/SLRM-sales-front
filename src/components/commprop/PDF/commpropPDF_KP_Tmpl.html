@@ -72,11 +72,12 @@
 
             <tr>
               <th></th> <!-- Dummy cell for the row number and row commands -->
-              <th>Название</th>
+              <th>Наименование</th>
               <th>Производитель</th>
               <th>Цена</th>
-              <th>Количество</th>
+              <th>Кол-во</th>
               <th>Итого</th>
+ <th>Фото</th>
             </tr>
 
             <tbody ng-repeat="good in goods track by $index">
@@ -87,11 +88,14 @@
                 <td>{{good.price | number:0}} {{good.currency}}</td>
                 <td>{{good.quantity}} шт</td>
                 <td>{{good.quantity*good.price | number:0}} {{good.currency}}</td>
+                <td><img ng-repeat="photo in good.photos" ng-src={{photo.path|goodsphotosreplacethumb}} class="img-responsive" alt="Responsive image" height="300"></td> 
+<!-- Don't remove this column as it's needed for the row commands -->
 
-              </tr>
+
+              </tr><!-- 
               <tr data-iterate="item" class="picture">
-                <td colspan="6"><img ng-repeat="photo in good.photos" ng-src={{photo.path|goodsphotosreplacethumb}} class="img-responsive" alt="Responsive image"></td> <!-- Don't remove this column as it's needed for the row commands -->
-              </tr>
+                <td colspan="6"><img ng-repeat="photo in good.photos" ng-src={{photo.path|goodsphotosreplacethumb}} class="img-responsive" alt="Responsive image"></td> 
+            </tr> -->
             </tbody>
 
           </table>
