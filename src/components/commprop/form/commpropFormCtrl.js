@@ -7,7 +7,7 @@
         $scope.entity.client = $scope.entity.client || {};
         $scope.entity.broker = $scope.entity.broker || {};
 
-        $scope.statusTypes = [{ type: '-', text: 'Не согласовано' },{ type: 'ok', text: 'Действует' },{ type: 'cancel', text: 'Отменено' }];
+        $scope.statusTypes = [{ type: 'open', text: 'Не согласовано' },{ type: 'ok', text: 'Действует' },{ type: 'cancel', text: 'Отменено' }];
 
         $scope.refreshClients = function(clients) {
           var criteria;
