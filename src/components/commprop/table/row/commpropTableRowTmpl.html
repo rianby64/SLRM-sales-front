@@ -1,5 +1,5 @@
 <tr>
-  <td>№{{ entity.id }}, от {{ entity.createdAt | date:'dd MMM yyyy' }}, {{ entity.client.first_name }} {{ entity.client.last_name }}, {{ entity.comments }}, {{ entity.status }}</td>
+  <td>№{{ entity.id }}, от {{ entity.createdAt | date:'dd MMM yyyy' }}, {{ entity.client.first_name }} {{ entity.client.last_name }}<br>Комментарий: {{ entity.comments }}<br>Состояние КП: <span ng-if="entity.status==='-'">Не согласовано</span><span ng-if="entity.status==='ok'">Действует</span><span ng-if="entity.status==='cancel'">Отменено</span></td>
   <!-- <standar behavior -->
    <td class="entity-row-action">
     <a ui-sref="{{base}}.edit.detail.extra({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-info-sign"></a>
