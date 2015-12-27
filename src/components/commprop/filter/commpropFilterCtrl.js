@@ -15,7 +15,7 @@
       };
       
       $scope.filterByOpen = function filterByOpen() {
-        var criteria = { status: 'open' };
+        var criteria = { status: '-' };
         $scope.searchManager.load(criteria);
       };
       
