@@ -12,6 +12,7 @@
       function($scope, $stateParams, commpropHTTP, commpropGoodsHTTP, goodsPhotosHTTP, authService) {
         $scope.error = $scope.error || function() { console.log('commpropPDF:config:state:controller>>error empty'); };
         $scope.commprop = {};
+        $scope.today = new Date();
         $scope.goods = [];
         $scope.totalPrice = 0;
         $scope.totalCount = 0;

@@ -45,11 +45,13 @@
         
 
           <div id="title">Бланк Заказа <span id="number">#{{commprop.id}}</span> </div>
-     <div class="title-top"> 
-            <span>Дата: {{commprop.createdAt | date: "yyyy.MM.dd"}}</span>
+     <div class="title-top">
+            <span>Дата: {{today | date: "yyyy.MM.dd"}}</span>
           </div> 
 <div class="client-name">
-            <span>Клиент: {{commprop.client.first_name}} {{commprop.client.middle_name}} {{commprop.client.last_name}}</span>
+            <span>Клиент: {{commprop.client.first_name}} {{commprop.client.middle_name}} {{commprop.client.last_name}}</span><br>
+            <span>Телефон: {{commprop.client.telephone}}</span><br>
+            <span ng-if="commprop.client.address">Адрес: {{commprop.client.address}}</span>
           </div>
                 </section>
 
@@ -89,9 +91,9 @@
                 <td>{{good.quantity*good.price | number:0}} {{good.currency}}</td>
 
               </tr>
-              <tr data-iterate="item" class="picture">
+              <!-- tr data-iterate="item" class="picture">
                 <td colspan="6"><img ng-repeat="photo in good.photos" ng-src={{photo.path|goodsphotosreplacethumb}} class="img-responsive" alt="Responsive image"></td> <!-- Don't remove this column as it's needed for the row commands -->
-              </tr>
+              </tr -->
             </tbody>
 
           </table>
