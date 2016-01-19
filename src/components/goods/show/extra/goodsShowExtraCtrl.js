@@ -59,7 +59,11 @@
           $scope.progressPercentage = progressPercentage;
         }).success(function (data, status, headers, config) {
           $scope.uploadingFile = false;
+          console.log('status', status);
           $scope.entriesGoodsPhotos.push(data);
+        }).error(function(response) {
+          $scope.uploadingFile = false;
+          alert('Фотографию не удалось загрузить');
         });
       };
 
