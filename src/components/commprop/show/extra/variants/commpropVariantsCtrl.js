@@ -5,11 +5,11 @@
     .controller('commpropVariantsController', ['$scope', 'commpropVariantsHTTP', function($scope, commpropVariantsHTTP) {
       
       $scope.beginEditCommpropVariants = function beginEditCommpropVariants() {
-        console.log('beginEditCommpropVariants');
+        console.log('beginEditCommpropVariants', $scope.variant);
       };
       
       $scope.onRemoveCommpropVariants = function onRemoveCommpropVariants() {
-        console.log('onRemoveCommpropVariants');
+        console.log('onRemoveCommpropVariants', $scope.variant);
       };
       
     }]);
