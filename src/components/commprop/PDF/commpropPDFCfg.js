@@ -13,12 +13,12 @@
           templateUrl: 'components/commprop/PDF/commpropPDF_KP_Tmpl.html'
         });
       
-      $stateProvider
-        .state('commpropPDF_BZ', {
-          url: "/commpropPDF/BZ/:id",
-          controller: 'commpropPDFcontroller',
-          templateUrl: 'components/commprop/PDF/commpropPDF_BZ_Tmpl.html'
-        });
+//      $stateProvider
+//        .state('commpropPDF_BZ', {
+//          url: "/commpropPDF/BZ/:id",
+//          controller: 'commpropPDFcontroller',
+//          templateUrl: 'components/commprop/PDF/commpropPDF_BZ_Tmpl.html'
+//        });
 
     }]);
 })();
