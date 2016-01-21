@@ -1,6 +1,6 @@
 <hr>
 <button ng-click="onAddCommpropVariants()" class="btn btn-default glyphicon glyphicon-plus"></button>
 <div ng-repeat="variant in variants">
-  <commprop-variants variant=variant></commprop-variants>
+  <commprop-variants variant=variant on-remove="onRemoveCompropVariants"></commprop-variants>
 </div>
 <hr>

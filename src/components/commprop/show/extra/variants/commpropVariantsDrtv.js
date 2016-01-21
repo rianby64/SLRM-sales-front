@@ -7,7 +7,8 @@
       return {
         restrict: 'E',
         scope: {
-          variant: '='
+          variant: '=',
+          onRemove: '='
         },
         controller: 'commpropVariantsController',
         templateUrl: 'components/commprop/show/extra/variants/commpropVariantsTmpl.html'
