@@ -10,7 +10,7 @@
         .state('commpropPDF', {
           url: "/commpropPDF/:id",
           controller: 'commpropPDFcontroller',
-          templateUrl: 'components/commprop/PDF/commpropPDF_KP_Tmpl.html'
+          templateUrl: 'components/commprop/PDF/commpropPDFTmpl.html'
         });
       
 //      $stateProvider

@@ -66,8 +66,8 @@
         <div class="clearfix"></div>
 
 
-        <section id="items">
-
+        <section id="items" ng-repeat="variant in variants">
+          Вариант {{variant.name}}
           <table cellpadding="0" cellspacing="0">
 
             <tr>
@@ -80,7 +80,7 @@
  <th>Фото</th>
             </tr>
 
-            <tbody ng-repeat="good in goods track by $index">
+            <tbody ng-repeat="good in variant.goods track by $index">
               <tr data-iterate="item">
                 <td>{{$index + 1}}</td> <!-- Don't remove this column as it's needed for the row commands -->
                 <td>{{good.good.name}}</td>
@@ -99,27 +99,26 @@
             </tbody>
 
           </table>
+          
+          <section id="sums">
+            <table cellpadding="0" cellspacing="0">
 
+              <tr ng-if="variant.totalPriceRUB" class="amount-total">
+                <!-- {amount_total_label} -->
+                <td>Итого: {{variant.totalPriceRUB | number:0}} руб.</td>
+              </tr>
+              <tr ng-if="variant.totalPriceUSD" class="amount-total">
+                <td>Итого: $ {{variant.totalPriceUSD | number:0}} </td>
+              </tr>
+              <tr ng-if="variant.totalPriceEUR" class="amount-total">
+                <td>Итого: € {{variant.totalPriceEUR | number:0}} </td>
+              </tr>
+              <tr ng-if="variant.totalPriceEUR" class="amount-total">
+                <td>Количество: {{variant.totalCount | number:0}} </td>
+              </tr>
+            </table>
+          </section>
         </section>
-
-        <section id="sums">
-          <table cellpadding="0" cellspacing="0">
-
-            <tr ng-if="totalPriceRUB" class="amount-total">
-              <!-- {amount_total_label} -->
-              <td>Итого: {{totalPriceRUB | number:0}} руб.</td>
-            </tr>
-            <tr ng-if="totalPriceUSD" class="amount-total">
-              <td>Итого: $ {{totalPriceUSD | number:0}} </td>
-            </tr>
-            <tr ng-if="totalPriceEUR" class="amount-total">
-              <td>Итого: € {{totalPriceEUR | number:0}} </td>
-            </tr>
-
-          </table>
-        </section>
-
-
       </div>
     </div>
 

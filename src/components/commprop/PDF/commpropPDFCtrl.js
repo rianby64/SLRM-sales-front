@@ -3,56 +3,66 @@
   angular
     .module('RDash')
     .controller('commpropPDFcontroller', [
-      '$scope', 
-      '$stateParams', 
-      'commpropHTTP', 
+      '$scope',
+      '$stateParams',
+      'commpropHTTP',
+      'commpropVariantsHTTP',
       'commpropGoodsHTTP',
       'goodsPhotosHTTP',
       'authService',
-      function($scope, $stateParams, commpropHTTP, commpropGoodsHTTP, goodsPhotosHTTP, authService) {
-        $scope.error = $scope.error || function() { console.log('commpropPDF:config:state:controller>>error empty'); };
-        $scope.commprop = {};
-        $scope.today = new Date();
-        $scope.goods = [];
-        $scope.totalPrice = 0;
-        $scope.totalCount = 0;
-        $scope.manager = {};
-        $scope.manager.name = '';
-        $scope.manager.telephone = '';
-        
-        commpropHTTP
-        .read({
-          id: $stateParams.id
-        })
-        .success(function(commprop) {
-          authService.check().then(function(user) {
-            $scope.manager.name = authService.user.name;
-            $scope.manager.telephone = authService.user.telephone;
-          });
-          $scope.commprop = commprop;
-          $scope.totalPriceRUB = 0;
-          $scope.totalPriceEUR = 0;
-          $scope.totalPriceUSD = 0;
-          $scope.totalCount = 0;
+      commpropPDFcontroller
+    ]);
+  
+  function commpropPDFcontroller($scope, $stateParams, commpropHTTP, commpropVariantsHTTP, commpropGoodsHTTP, goodsPhotosHTTP, authService) {
+    $scope.error = $scope.error || function() { console.log('commpropPDF:config:state:controller>>error empty'); };
+    $scope.manager = {};
+    $scope.manager.name = '';
+    $scope.manager.telephone = '';
+
+    $scope.commprop = {};
+    $scope.today = new Date();
+    $scope.variants = [];
+    
+    commpropHTTP
+    .read({
+      id: $stateParams.id
+    })
+    .success(function(commprop) {
+      authService.check().then(function(user) {
+        $scope.manager.name = authService.user.name;
+        $scope.manager.telephone = authService.user.telephone;
+      });
+      $scope.commprop = commprop;
+      
+      commpropVariantsHTTP.setCommercialProposalId(commprop.id);
+      commpropVariantsHTTP.read().success(function(variants) {
+        $scope.variants = variants;
+        $scope.variants.forEach(function(variant) {
+          variant.goods = [];
+          commpropGoodsHTTP.setCommercialProposalVariantsId(variant.id);
           
-          commpropGoodsHTTP.setCommercialProposalId(commprop.id);
           commpropGoodsHTTP
           .read()
           .success(function(goods) {
-            $scope.goods = goods;
-            $scope.goods.forEach(function(item) {
+            variant.goods = goods;
+            variant.totalPriceRUB = 0;
+            variant.totalPriceUSD = 0;
+            variant.totalPriceEUR = 0;
+            variant.totalCount = 0;
+            
+            variant.goods.forEach(function(item) {
               if (item.currency === "RUB") {
-                $scope.totalPriceRUB += item.good.price * item.quantity;
+                variant.totalPriceRUB += item.good.price * item.quantity;
               }
               if (item.currency === "USD") {
-                $scope.totalPriceUSD += item.good.price * item.quantity;
+                variant.totalPriceUSD += item.good.price * item.quantity;
               }
               if (item.currency === "EUR") {
-                $scope.totalPriceEUR += item.good.price * item.quantity;
+                variant.totalPriceEUR += item.good.price * item.quantity;
               }
-              $scope.totalCount += item.quantity;
+              variant.totalCount += item.quantity;
               item.photos = [];
-              
+
               goodsPhotosHTTP.setGoodId(item.good.id);
               goodsPhotosHTTP
               .read()
@@ -67,11 +77,15 @@
           .error(function(reason) {
             $scope.error(reason);
           });
-        })
-        .error(function(reason) {
-          $scope.error(reason);
         });
-      }
-    ]);
+      })
+      .error(function(reason) {
+        $scope.error(reason);
+      });
+    })
+    .error(function(reason) {
+      $scope.error(reason);
+    });
+  }
 })();
   
