@@ -60,5 +60,28 @@
 
 <div class="form-group" ng-if="entity.id">
   <label for="entityForm.status">Статус</label>
-  <select id="entityForm.status" ng-model="entity.status" class="form-control" ng-options="value.type as value.text for value in statusTypes" placeholder="Статус"></select>
+  <select id="entityForm.status" ng-model="entity.status" class="form-control" ng-options="value.type as value.text for value in statusTypes" placeholder="Статус" ng-disabled="entity.status!=='-'"></select>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="changeStatusModal" tabindex="-1" role="dialog" aria-labelledby="changeStatusModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancelStatusChange()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="changeStatusModalLabel">Действительно ли?</h4>
+      </div>
+      <div class="modal-body">
+        Если поменять статус КП в "Согласовано" или в "Отменено" то нельзя поменять обратно в "Не согласовано".
+        Вы будете менять статус?
+        <br>
+        Не забудьте сохранить изменения
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelStatusChange()">Нет</button>
+        <button type="button" class="btn btn-primary" ng-click="confirmStatusChange()">Да</button>
+      </div>
+    </div>
+  </div>
 </div>

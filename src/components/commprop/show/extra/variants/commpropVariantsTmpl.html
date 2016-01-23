@@ -1,8 +1,9 @@
 <hr>
 <div>
-  Вариант №<span ng-if="!editing">{{variant.name}}</span><input ng-model="variant.name" ng-if="editing">
+  Вариант <span ng-if="!editing">{{variant.name}}</span><input ng-model="variant.name" ng-if="editing">
   <button ng-if="editing" ng-click="endEditCommpropVariant()" class="btn btn-default glyphicon glyphicon-ok"></button>
   <button ng-if="!editing" ng-click="beginEditCommpropVariant()" class="btn btn-default glyphicon glyphicon-pencil"></button>
-  <button ng-click="removeCommpropVariant()" class="btn btn-default glyphicon glyphicon-remove"></button>
+<!--  <button ng-click="removeCommpropVariant()" class="btn btn-default glyphicon glyphicon-remove"></button>-->
+  <entity-modal ng-if="!editing" entity=variant submit=removeCommpropVariant template-detail="commprop-variants-show"></entity-modal>
   <commprop-goods variant=variant></commprop-goods>
 </div>
