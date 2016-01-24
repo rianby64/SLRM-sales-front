@@ -9,6 +9,7 @@
         scope: { 
           entity: '='
         },
+        controller: 'orderFormFormController',
         templateUrl: 'components/orderForm/form/orderFormFormTmpl.html'
       };
     });

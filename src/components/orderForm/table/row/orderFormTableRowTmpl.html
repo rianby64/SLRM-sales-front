@@ -1,5 +1,5 @@
 <tr>
-  <td>{{ entity.name }}</td>
+  <td>№{{ entity.commercialProposalId }}, от {{ entity.createdAt | date:'dd MMM yyyy' }}, {{ entity.client.first_name }} {{ entity.client.last_name }}<br>Комментарий: {{ entity.comments }}<br>Состояние БЗ: <span ng-if="entity.status==='-'">Не согласовано</span><span ng-if="entity.status==='ok'">Согласовано</span><span ng-if="entity.status==='cancel'">Отменено</span></td>
   <!-- <standar behavior -->
    <td class="entity-row-action">
 <!--    <a ui-sref="{{base}}.detail({ id: {{entity.id}} })" class="btn btn-default glyphicon glyphicon-info-sign"></a>-->
