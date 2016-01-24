@@ -9,16 +9,14 @@
       $stateProvider
         .state('main.orderForm', {
           abstract: true,
-          url: "/orderForm",
+          url: "/orderform",
           controller: 'orderFormController',
           template: '\
           <entity \
             read=read \
-            add=add \
-            remove=remove \
             update=update \
             base="main.orderForm" \
-            title="Категории"> \
+            title="Бланк заказа"> \
           </entity>'
         });
       

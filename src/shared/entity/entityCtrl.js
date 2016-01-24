@@ -10,10 +10,10 @@
       $scope.message = $scope.message || function() { console.error('entityController>>message empty'); };
       $scope.error = $scope.error || function() { console.error('entityController>>error empty'); };
 
-      $scope.add = $scope.add || function() { console.error('entityController>>add empty'); };
-      $scope.read = $scope.read || function() { console.error('entityController>>read empty'); };
-      $scope.remove = $scope.remove || function() { console.error('entityController>>remove empty'); };
-      $scope.update = $scope.update || function() { console.error('entityController>>update empty'); };
+      $scope.add = $scope.add || function dummyAdd() { console.error('entityController>>add empty'); };
+      $scope.read = $scope.read || function dummyRead() { console.error('entityController>>read empty'); };
+      $scope.remove = $scope.remove || function dummyRemove() { console.error('entityController>>remove empty'); };
+      $scope.update = $scope.update || function dummyUpdate() { console.error('entityController>>update empty'); };
 
       $scope.back = function() {
         $scope.message();

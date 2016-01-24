@@ -11,10 +11,10 @@
       notifyRead: function() { console.error('entityManager>>notifyRead empty'); },
       notifyRemove: function() { console.error('entityManager>>notifyRemove empty'); },
       notifyUpdate: function() { console.error('entityManager>>notifyUpdate empty'); },
-      add: function() { console.error('entityManager>>add empty'); },
-      read: function() { console.error('entityManager>>read empty'); },
-      remove: function() { console.error('entityManager>>remove empty'); },
-      update: function() { console.error('entityManager>>update empty'); }
+      add: function dummyAdd() { console.error('entityManager>>add empty'); },
+      read: function dummyRead() { console.error('entityManager>>read empty'); },
+      remove: function dummyRemove() { console.error('entityManager>>remove empty'); },
+      update: function dummyUpdate() { console.error('entityManager>>update empty'); }
     };
 
     var that = this;
@@ -32,6 +32,12 @@
       if (new_manager.read) { manager.read = new_manager.read; }
       if (new_manager.remove) { manager.remove = new_manager.remove; }
       if (new_manager.update) { manager.update = new_manager.update; }
+      
+      that.origin = {};
+      that.origin.add = new_manager.add;
+      that.origin.read = new_manager.read;
+      that.origin.remove = new_manager.remove;
+      that.origin.update = new_manager.update;
     };
 
     this.add = function add(entity) {
