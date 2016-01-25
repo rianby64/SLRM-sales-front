@@ -11,6 +11,9 @@
     $scope.statusTypes = [{ type: '-', text: 'Не согласовано' },{ type: 'ok', text: 'Согласовано' },{ type: 'cancel', text: 'Отменено' }];
     
     $scope.$watch('entity.status', function(newValue, oldValue) {
+      if (newValue === oldValue) {
+        return;
+      }
       if (((newValue === 'cancel') || (newValue === 'ok')) && (oldValue !== undefined)) {
         $('#changeStatusModal').modal('show');
         lastStatus = oldValue;
