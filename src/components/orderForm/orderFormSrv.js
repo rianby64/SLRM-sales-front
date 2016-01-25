@@ -6,15 +6,15 @@
         var criteria_ = criteria || { };
         criteria_.author = authService.user.name;
         if (!criteria_.id) {
-          return $http.get("/api/orderForm", { params: criteria_ });
+          return $http.get("/api/orderform", { params: criteria_ });
         }
         if (criteria_.id) {
-          return $http.get("/api/orderForm/" + criteria.id); 
+          return $http.get("/api/orderform/" + criteria.id); 
         }
       };
 
       this.update = function update(client) {
-        return $http.put("/api/orderForm/" + client.id, client);
+        return $http.put("/api/orderform/" + client.id, client);
       };
   }]);
 })();
