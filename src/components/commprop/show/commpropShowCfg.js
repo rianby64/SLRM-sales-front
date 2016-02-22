@@ -8,7 +8,7 @@
       // Now set up the states
       $stateProvider
         .state('main.commprop.edit.detail', {
-          url: "/detail/:id",
+          url: "/detail",
           controller: ['$scope', '$stateParams', function($scope, $stateParams) {
             var criteria = {
               id: $stateParams.id

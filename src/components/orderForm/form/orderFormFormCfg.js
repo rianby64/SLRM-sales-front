@@ -46,7 +46,7 @@
             entity=entity \
             template-form="order-form-form" \
             action="update"> \
-          </entity-form>'
+          </entity-form><div ui-view></div>'
         });
     }]);
 })();

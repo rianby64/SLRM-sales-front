@@ -7,8 +7,8 @@
             
       // Now set up the states
       $stateProvider
-        .state('main.orderForm.detail', {
-          url: "/detail/:id",
+        .state('main.orderForm.edit.detail', {
+          url: "/detail",
           controller: ['$scope', '$stateParams', function($scope, $stateParams) {
             var criteria = {
               id: $stateParams.id
