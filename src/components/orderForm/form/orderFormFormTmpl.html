@@ -32,6 +32,15 @@
   <select id="entityForm.status" ng-model="entity.status" class="form-control" ng-options="value.type as value.text for value in statusTypes" placeholder="Статус" ng-disabled="entity.status!=='-'"></select>
 </div>
 
+<div>
+  Вариант: {{entity.commercial_proposal_variant.name}}<br>
+  <div ng-repeat="item in vitrine">
+    name: {{item.good.name}}<br>
+    price: {{item.price}} {{item.currency}}<br>
+    quantity: {{item.quantity}}<br>
+  </div>
+  
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="changeStatusModal" tabindex="-1" role="dialog" aria-labelledby="changeStatusModalLabel">
