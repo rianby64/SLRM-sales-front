@@ -7,10 +7,10 @@
 
       // Now set up the states
       $stateProvider
-        .state('main.orderForm.edit.detail.extra', {
-          url: "/extra",
-          controller: 'orderFormExtraController',
-          templateUrl: 'components/orderForm/show/extra/orderFormExtraTmpl.html'
+        .state('orderFormPDF', {
+          url: "/orderFormPDF/:id",
+          controller: 'orderFormPDFcontroller',
+          templateUrl: 'components/orderForm/PDF/orderFormPDFTmpl.html'
         });
 
     }]);

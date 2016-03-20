@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+  Invoice template by invoicebus.com
+  To customize this template consider following this guide https://invoicebus.com/how-to-create-invoice-template/
+  This template is under Invoicebus Template License, see https://invoicebus.com/templates/license/
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sales OK</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Invoicebus Invoice Template">
+    <meta name="author" content="Invoicebus">
+
+   <!-- <meta name="template-hash" content="91216e926eab41d8aa403bf4b00f4e19"> -->
+
+    <link rel="stylesheet" href="css/template.css">
+  </head>
+  <body>
+    <div id="container">
+
+
+      <div class="right-invoice">
+        <section id="memo">
+          <div class="company-info">
+
+            <span>г. Казань, ул. Достоевского, д. 66</span>
+            <br>
+            <span>+7 (843) 238-46-51</span><br>
+
+  <span>Salon PREMI</span>
+
+          </div>
+
+          <div class="logo">
+            <img src="img/logo.png" />
+          </div>
+        </section>
+
+        <section id="invoice-title-number">
+
+        
+
+          <div id="title">Коммерческое предложение <span id="number">#{{commprop.id}}</span> </div>
+     <div class="title-top"> 
+            <span>Дата: {{commprop.createdAt | date: "yyyy.MM.dd"}}</span>
+          </div> 
+<div class="client-name">
+            <span>Клиент: {{commprop.client.first_name}} {{commprop.client.middle_name}} {{commprop.client.last_name}}</span>
+          </div>
+                </section>
+
+        <section id="client-info">
+       <br>    <br>      <div>
+            <span>Менеджер: {{manager.name}}</span>
+          </div>
+
+          <div>
+            <span>Телефон: {{manager.telephone}}</span>
+          </div>
+        </section>
+
+        <div class="clearfix"></div>
+
+
+        <section id="items">
+          <table cellpadding="0" cellspacing="0">
+
+            <tr>
+              <th></th> <!-- Dummy cell for the row number and row commands -->
+              <th>Наименование</th>
+              <th>Производитель</th>
+              <th>Цена</th>
+              <th>Кол-во</th>
+              <th>Итого</th>
+ <th>Фото</th>
+            </tr>
+
+            <tbody ng-repeat="good in variant.goods track by $index">
+              <tr data-iterate="item">
+                <td>{{$index + 1}}</td> <!-- Don't remove this column as it's needed for the row commands -->
+                <td>{{good.good.name}}</td>
+                <td>{{good.good.provider.organization_name}}</td>
+                <td>{{good.price | number:0}} {{good.currency}}</td>
+                <td>{{good.quantity}} шт</td>
+                <td>{{good.quantity*good.price | number:0}} {{good.currency}}</td>
+                <td><img ng-repeat="photo in good.photos" ng-src={{photo.path|goodsphotosreplacethumb}} class="img-responsive" alt="Responsive image" height="300"></td> 
+<!-- Don't remove this column as it's needed for the row commands -->
+
+
+              </tr><!-- 
+              <tr data-iterate="item" class="picture">
+                <td colspan="6"><img ng-repeat="photo in good.photos" ng-src={{photo.path|goodsphotosreplacethumb}} class="img-responsive" alt="Responsive image"></td> 
+            </tr> -->
+            </tbody>
+
+          </table>
+          
+          <section id="sums">
+            <table cellpadding="0" cellspacing="0">
+
+              <tr ng-if="variant.totalPriceRUB" class="amount-total">
+                <!-- {amount_total_label} -->
+                <td>Итого: {{variant.totalPriceRUB | number:0}} руб.</td>
+              </tr>
+              <tr ng-if="variant.totalPriceUSD" class="amount-total">
+                <td>Итого: $ {{variant.totalPriceUSD | number:0}} </td>
+              </tr>
+              <tr ng-if="variant.totalPriceEUR" class="amount-total">
+                <td>Итого: € {{variant.totalPriceEUR | number:0}} </td>
+              </tr>
+              <tr ng-if="variant.totalCount" class="amount-total">
+                <td>Количество: {{variant.totalCount | number:0}} </td>
+              </tr>
+            </table>
+          </section>
+        </section>
+      </div>
+    </div>
+
+
+  </body>
+</html>

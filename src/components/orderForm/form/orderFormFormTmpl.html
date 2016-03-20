@@ -32,14 +32,29 @@
   <select id="entityForm.status" ng-model="entity.status" class="form-control" ng-options="value.type as value.text for value in statusTypes" placeholder="Статус" ng-disabled="entity.status!=='-'"></select>
 </div>
 
-<div>
-  Вариант: {{entity.commercial_proposal_variant.name}}<br>
-  <div ng-repeat="item in vitrine">
-    name: {{item.good.name}}<br>
-    price: {{item.price}} {{item.currency}}<br>
-    quantity: {{item.quantity}}<br>
-  </div>
-  
+<table class="table">
+  <caption>Список товаров по варианту: {{entity.commercial_proposal_variant.name}}</caption>
+  <thead>
+    <tr>
+      <th>Название</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="entryGood in vitrine">
+      <td>
+          {{entryGood.good.name}}
+          <br>
+          {{entryGood.quantity}} шт, {{entryGood.price}} {{entryGood.currency}} = {{entryGood.price*entryGood.quantity}} {{entryGood.currency}}
+          <br>
+          Срок поставки {{entryGood.delivery_period}}
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="form-group">
+  <button ui-sref="orderFormPDF({ id: entity.id })" class="form-control btn btn-default">Оформить PDF</button>
 </div>
 
 <!-- Modal -->
