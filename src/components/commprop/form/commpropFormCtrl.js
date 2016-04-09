@@ -9,7 +9,7 @@
     $scope.entity.client = $scope.entity.client || {};
     $scope.entity.broker = $scope.entity.broker || {};
     $scope.statusTypes = [{ type: '-', text: 'Не согласовано' },{ type: 'ok', text: 'Согласовано' },{ type: 'cancel', text: 'Отменено' }];
-    
+
     $scope.$watch('entity.status', function(newValue, oldValue) {
       if (newValue === oldValue) {
         return;
@@ -19,16 +19,16 @@
         lastStatus = oldValue;
       }
     });
-    
+
     $scope.confirmStatusChange = function confirmStatusChange() {
       $('#changeStatusModal').modal('hide');
     }
-  
+
     $scope.cancelStatusChange = function confirmStatusChange() {
       $scope.entity.status = lastStatus;
       $('#changeStatusModal').modal('hide');
     }
-    
+
     $scope.refreshClients = function(clients) {
       var criteria;
       if (clients) {

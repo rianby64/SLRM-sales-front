@@ -5,11 +5,11 @@
              theme="bootstrap"
              ng-disabled="disabled"
              reset-search-input="false">
-    <ui-select-match placeholder="Клиент...">{{$select.selected.first_name}} {{$select.selected.middle_name}} {{$select.selected.last_name}}</ui-select-match>
+    <ui-select-match placeholder="Клиент...">{{$select.selected.first_name ? $select.selected.first_name : ''}} {{$select.selected.middle_name ? $select.selected.middle_name : ''}} {{$select.selected.last_name ? $select.selected.last_name : ''}}</ui-select-match>
     <ui-select-choices repeat="client in clients"
              refresh="refreshClients($select.search)"
              refresh-delay="0">
-      <div ng-bind-html="client.first_name + ' ' + client.middle_name + ' ' + client.last_name | highlight: $select.search"></div>
+      <div ng-bind-html="(client.first_name ? client.first_name : '') + ' ' + (client.middle_name ? client.middle_name : '') + ' ' + (client.last_name ? client.last_name : '') | highlight: $select.search"></div>
     </ui-select-choices>
   </ui-select>
 </div>
@@ -21,14 +21,14 @@
              ng-disabled="disabled"
              reset-search-input="false">
     <ui-select-match placeholder="Дизайнер...">
-      {{$select.selected.first_name}} {{$select.selected.last_name}}
-      {{$select.selected.organization_name}} {{$select.selected.legal_name}}
+      {{$select.selected.first_name ? $select.selected.first_name : ''}} {{$select.selected.last_name ? $select.selected.last_name : ''}}
+      {{$select.selected.organization_name}} {{$select.selected.legal_name ? $select.selected.legal_name : ''}}
     </ui-select-match>
     <ui-select-choices repeat="broker in brokers"
              refresh="refreshBrokers($select.search)"
              refresh-delay="0">
-      <div ng-if="broker.type === 'natural'" ng-bind-html="broker.first_name + ' ' + broker.middle_name + ' ' + broker.last_name | highlight: $select.search"></div>
-      <div ng-if="broker.type === 'legal'" ng-bind-html="broker.organization_name + ' ' + broker.legal_name | highlight: $select.search"></div>
+      <div ng-if="broker.type === 'natural'" ng-bind-html="(broker.first_name ? broker.first_name : '') + ' ' + (broker.middle_name ? broker.middle_name : '') + ' ' + (broker.last_name ? broker.last_name : '') | highlight: $select.search"></div>
+      <div ng-if="broker.type === 'legal'" ng-bind-html="(broker.organization_name ? broker.organization_name : '') + ' ' + (broker.legal_name ? broker.legal_name : '') | highlight: $select.search"></div>
     </ui-select-choices>
   </ui-select>
 </div>
