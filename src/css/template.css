@@ -282,6 +282,7 @@ border:
   width: 100%;
   margin-bottom: 10px;
 }
+
 #items table th:nth-child(1){
   width: 5%;
 }
