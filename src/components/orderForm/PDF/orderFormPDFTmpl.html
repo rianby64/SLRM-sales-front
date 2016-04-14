@@ -67,17 +67,16 @@
 
 
         <section id="items">
-          <table cellpadding="0" cellspacing="0">
-
-            <tr>
+          <table cellpadding="0" cellspacing="0" class='table table-bordered' >
+            <thead><tr>
               <th></th> <!-- Dummy cell for the row number and row commands -->
               <th>Наименование</th>
               <th>Производитель</th>
               <th>Цена</th>
               <th>Кол-во</th>
               <th>Итого</th>
- <th>Фото</th>
-            </tr>
+            </tr></thead>
+            
 
             <tbody ng-repeat="good in variant.goods track by $index">
               <tr data-iterate="item">
@@ -87,10 +86,16 @@
                 <td>{{good.price | number:0}} {{good.currency}}</td>
                 <td>{{good.quantity}} шт</td>
                 <td>{{good.quantity*good.price | number:0}} {{good.currency}}</td>
-                <td><img ng-repeat="photo in good.photos" ng-src={{photo.path|goodsphotosreplacethumb}} class="img-responsive" alt="Responsive image" height="300"></td> 
+<!--                 <td><img ng-repeat="photo in good.photos" ng-src={{photo.path|goodsphotosreplacethumb}} class="img-responsive" alt="Responsive image" height="300"></td>  -->
 <!-- Don't remove this column as it's needed for the row commands -->
 
 
+              </tr>
+              <tr class='photos'>
+                <td></td>
+                <td colspan='5'>
+                  <img ng-repeat="photo in good.photos" ng-src={{photo.path|goodsphotosreplacethumb}} class="img-responsive" alt="Responsive image" height="300">
+                </td>
               </tr><!-- 
               <tr data-iterate="item" class="picture">
                 <td colspan="6"><img ng-repeat="photo in good.photos" ng-src={{photo.path|goodsphotosreplacethumb}} class="img-responsive" alt="Responsive image"></td> 
@@ -98,12 +103,26 @@
             </tbody>
 
           </table>
-          
-          <section id="sums">
+          <div class='total' ng-if="variant.totalPriceRUB">
+            Итого:
+            <span>{{variant.totalPriceRUB | number:0}} руб.</span>
+          </div>
+          <div class='total' ng-if="variant.totalPriceUSD">
+            Итого:
+            <span>{{variant.totalPriceRUB | number:0}} руб.</span>
+          </div>
+          <div class='total' ng-if="variant.totalPriceEUR">
+            Итого:
+            <span>{{variant.totalPriceRUB | number:0}} руб.</span>
+          </div>
+          <div class='total' ng-if="variant.totalCount">Количество: 
+            <span>{{variant.totalCount | number:0}}</span>
+          </div>
+<!--           <section id="sums">
             <table cellpadding="0" cellspacing="0">
 
               <tr ng-if="variant.totalPriceRUB" class="amount-total">
-                <!-- {amount_total_label} -->
+
                 <td>Итого: {{variant.totalPriceRUB | number:0}} руб.</td>
               </tr>
               <tr ng-if="variant.totalPriceUSD" class="amount-total">
@@ -116,7 +135,7 @@
                 <td>Количество: {{variant.totalCount | number:0}} </td>
               </tr>
             </table>
-          </section>
+          </section> -->
         </section>
       </div>
     </div>
